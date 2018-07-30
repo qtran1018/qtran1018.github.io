@@ -5,10 +5,16 @@
         <meta charset="UTF-8">
         <meta name="description" content="Practicing my Web Dev">
         <meta name="author" content="Quang Tran">
+        <script>
+            function s(text){
+                document.getElementById(text).innerHTML = "scrub";
+            }
+        </script>
+
     </head>
 
     <body>
-        <img src="images/z75s.jpg" alt="¯\_(ツ)_/¯" width="400"> 
+        <img id = "pic" src="images/z75s.jpg" alt="¯\_(ツ)_/¯" width="400" onclick = "s('pic')"> 
         <h1>Hello World</h1>
         <p>I'll learn how to use this soon</p>
         <a href="https://github.com/qtran1018/qtran1018.github.io" target="_blank">To the Source</a>
@@ -19,7 +25,6 @@
                     <li><a href="https://www.reddit.com/r/StardewValley/" target="_blank">StardewValley Reddit</a></li>
                     <li><a href="https://upload.farm/1FKu4o" target="_blank">Farm Information</a></li>
                     <li><a href="https://stardew.info/planner/fluffy-turkey-20/" target="_blank">Farm Planner</a></li>
-                    
                 </ul>
         </div>
     </body>
