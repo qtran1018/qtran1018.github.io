@@ -27,15 +27,26 @@ header p {
     margin-right: 20px;
 }
 
+
+table, td {
+    border: 2px solid black;
+    width: auto;
+}
+
 section h1 {
     text-align: center;
-    padding-bottom: 20px;
+    ;
+}
+
+section p {
+    text-align: center;
+    padding-bottom: 10px
 }
 
 
 img.itemImage {
     cursor: pointer;
     align-content: center;
-    opacity: 1;
+    opacity: .25;
 }
 
