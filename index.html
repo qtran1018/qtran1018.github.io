@@ -10,23 +10,20 @@
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/stylesheet.css">
         <link rel="shortcut icon" type="image/xicon" href="/images/favicon.ico">
-        <script src="/js/bootstrap.min.js"></script>
-        
-        <script>
-            //let item = document.getElementById("shipped");
-            function clickShip(){ 
-                let item = document.getElementById("shipped");
-                if (item.style.opacity == '1') {
-                    document.getElementById("shipped").style.opacity = '.2';
+        <!-- <script src="/js/bootstrap.min.js"></script> -->
                     
+        <script>
+            let clickShip = (cropID) => {    
+                let item = document.getElementById(cropID);
+                if (item.style.opacity === '1') {
+                    document.getElementById(cropID).style.opacity = '.2';
                 }
                 else {
-                    document.getElementById("shipped").style.opacity = '1';
-                    
+                    document.getElementById(cropID).style.opacity = '1';           
                 }           
-            }
-                        
+            }                
         </script>
+
     </head>
 
     <body>
@@ -43,11 +40,16 @@
         </header>
         
         <section class="jumbotron">
-            <div class="row">
+            <h1>Stardew Shipped Items Tracker</h1>
+            <div class="row text-center">
                 <div class="col-sm-6">
-                    <img id="shipped" src="images/StardewShipped/Amaranth.png" title="Amaranth" onclick="clickShip()"/>
-                    <img id="" src="images/StardewShipped/Ancient_Fruit.png" title="Ancient Fruit" />
-                    <img id="" src="images/StardewShipped/Apple.png" title="Apple"/>
+                    <img class="itemImage" id="Wild Horseradish" src="images/StardewShipped/Wild_Horseradish.png" title="Wild Horseradish" onclick="clickShip('Wild Horseradish')"/>
+                    
+                    
+                    
+                    <img class="itemImage" id="Amaranth" src="images/StardewShipped/Amaranth.png" title="Amaranth" onclick="clickShip('Amaranth')"/>
+                    <img class="itemImage" id="Ancient Fruit" src="images/StardewShipped/Ancient_Fruit.png" title="Ancient Fruit" onclick="clickShip('Ancient Fruit')"/>
+                    <img class="itemImage" id="Apple" src="images/StardewShipped/Apple.png" title="Apple" onclick="clickShip('Apple')"/>
                 </div>
                 <div class="col-sm-6">
                     <p>Ligma</p>
@@ -57,4 +59,5 @@
         
         
     </body>
+    
 </html>
