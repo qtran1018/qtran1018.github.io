@@ -1,51 +1,23 @@
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-    color: initial;
-    margin: 4px;
+header {
+    border: solid;
+    margin-top: 20px
 }
 
-.links {
-    text-decoration: underline;
+header h1 {
+    padding: 20px;
 }
 
-ul {
-    list-style-type:none;
+header nav {
+    padding-top: 20px;
+    display: inline-flex;
+    margin: auto; 
+    flex-wrap: wrap;
 }
 
-#topBar {
-    text-align: center;
-    margin: 20px;
+header p {
+    margin-right: 10px;
+}
 
+#shipped {
     
-}
-
-#topBarColor {
-    border-bottom: solid;
-    border-color: black;
-    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-}
-
-#centerPic {
-    display: block;
-    margin: auto;
-    /*margin-top: 5px*/
-}
-
-#leftCol {
-    background-color:antiquewhite;
-    text-align:center;
-    height: 100vh
-}
-
-#sdBorder {
-    padding: 10px;
-    border: 2px solid black;
-}
-
-#toDo {
-    text-align: center;
 }
