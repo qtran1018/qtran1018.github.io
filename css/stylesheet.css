@@ -1,12 +1,20 @@
+body {
+    background-image:url(/images/Stardew-Valley.jpg);
+}
+
 header {
     border: solid;
     margin-top: 20px;
     margin-bottom: 20px;
+    background-color: white;
+    /*background-image: url(/images/Wood%20Background.jpg);*/
     
 }
 
 header h1 {
     padding: 20px;
+    color:black;;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 header nav {
@@ -25,23 +33,28 @@ header p {
     border: solid black;
     margin-left: 20px;
     margin-right: 20px;
+    background-image:url(/images/)
 }
 
 
-table, td {
+table {
     border: 2px solid black;
     width: auto;
+    flex-wrap: wrap;
+    float: right;
 }
 
-section h1 {
-    text-align: center;
-    ;
+td {
+    border: 1px solid black;
+    width: auto;
+    flex-wrap: wrap
 }
 
-section p {
+section h1, p {
     text-align: center;
-    padding-bottom: 10px
+    
 }
+
 
 
 img.itemImage {
@@ -49,4 +62,3 @@ img.itemImage {
     align-content: center;
     opacity: .25;
 }
-
