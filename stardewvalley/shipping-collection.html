@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SDV Shipping Collection</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="description" content="Practicing my Web Dev">
+        <meta name="author" content="Quang Tran">
+
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/stylesheet.css">
+        <link rel="shortcut icon" type="image/xicon" href="/images/favicon.ico">
+        <!-- <script src="/js/bootstrap.min.js"></script> -->
+                    
+        <script>
+            let clickShip = (cropID) => {    
+                let item = document.getElementById(cropID);
+                if (item.style.opacity === '1') {
+                    document.getElementById(cropID).style.opacity = '.2';
+                }
+                else {
+                    document.getElementById(cropID).style.opacity = '1';           
+                }           
+            }                
+        </script>
+
+    </head>
+
+    <body>
+        
+        <header class="container">
+            <div class="row text-center">
+                <h1 class="col-sm-4"><a href="/index.html">Stardew Valley</a></h1>
+                <nav class="col-sm-8 text-left">
+                    <p><a href="https://github.com/qtran1018/qtran1018.github.io" target="_blank" title="My Github" alt="Link to my Github page."><img src="/images/github.png"/></a></p>
+                        
+                    <p><a href="https://www.reddit.com/r/StardewValley/" target="_blank" title="Stardew Valley Subreddit" alt="Link to the Stardew Valley Subreddit"><img src="/images/reddit.png" width="32px"/></a></p>
+                </nav>
+            </div>
+        </header>
+        
+        <section class="jumbotron">
+            <h1>Stardew Shipped Items Tracker</h1>
+            <p>Click on the pictures to change their status.</p>
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <table id="tableOne">
+                        <tr id="1firstRow">
+                            <td><img class="itemImage" id="Wild Horseradish" src="images/StardewShipped/Wild_Horseradish.png" title="Wild Horseradish" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Daffodil" src="images/StardewShipped/Daffodil.png" title="Daffodil" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Leek" src="images/StardewShipped/Leek.png" title="Leek" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Dandelion" src="images/StardewShipped/Dandelion.png" title="Dandelion" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemAmage" id="Parsnip" src="images/StardewShipped/Parsnip.png" title="Parsnip" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Cave Carrot" src="images/StardewShipped/Cave_Carrot.png" title="Cave Carrot" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Coconut" src="images/StardewShipped/Coconut.png" title="Coconut" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Cactus Fruit" src="images/StardewShipped/Cactus_Fruit.png" title="Cactus Fruit" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Sap" src="images/StardewShipped/Sap.png" title="Sap" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Egg" src="images/StardewShipped/Egg.png" title="Egg" onclick="clickShip(id)" style="opacity: .25"/></td>      
+                        </tr>
+                        <tr id="1secondRow">
+                            <td><img class="itemImage" id="Large Egg" src="images/StardewShipped/Large_Egg.png" title="Large Egg" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Brown Egg" src="images/StardewShipped/Brown_Egg.png" title="Brown Egg" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Large Brown Egg" src="images/StardewShipped/Large_Brown_Egg.png" title="Large Brown Egg" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Milk" src="images/StardewShipped/Milk.png" title="Milk" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Large Milk" src="images/StardewShipped/Large_Milk.png" title="Large Milk" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Green Bean" src="images/StardewShipped/Green_Bean.png" title="Green Bean" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Cauliflower" src="images/StardewShipped/Cauliflower.png" title="Cauliflower" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Potato" src="images/StardewShipped/Potato.png" title="Potato" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Garlic" src="images/StardewShipped/Garlic.png" title="Garlic" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Kale" src="images/StardewShipped/Kale.png" title="Kale" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="1thirdRow">
+                            <td><img class="itemImage" id="Rhubarb" src="images/StardewShipped/Rhubarb.png" title="Rhubarb" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Melon" src="images/StardewShipped/Melon.png" title="Melon" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Tomato" src="images/StardewShipped/Tomato.png" title="Tomato" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Morel" src="images/StardewShipped/Morel.png" title="Morel" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Blueberry" src="images/StardewShipped/Blueberry.png" title="Blueberry" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Fiddlehead Fern" src="images/StardewShipped/Fiddlehead_Fern.png" title="Fiddlehead Fern" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Hot Pepper" src="images/StardewShipped/Hot_Pepper.png" title="Hot Pepper" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Wheat" src="images/StardewShipped/Wheat.png" title="Wheat" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Radish" src="images/StardewShipped/Radish.png" title="Radish" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Red Cabbage" src="images/StardewShipped/Red_Cabbage.png" title="Red Cabbage" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="1fourthRow">
+                            <td><img class="itemImage" id="Starfruit" src="images/StardewShipped/Starfruit.png" title="Starfruit" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Corn" src="images/StardewShipped/Corn.png" title="Corn" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Eggplant" src="images/StardewShipped/Eggplant.png" title="Eggplant" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Artichoke" src="images/StardewShipped/Artichoke.png" title="Artichoke" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Pumpkin" src="images/StardewShipped/Pumpkin.png" title="Pumpkin" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Bok Choy" src="images/StardewShipped/Bok_Choy.png" title="Bok Choy" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Yam" src="images/StardewShipped/Yam.png" title="Yam" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Chanterelle" src="images/StardewShipped/Chanterelle.png" title="Chanterelle" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Cranberries" src="images/StardewShipped/Cranberries.png" title="Cranberries" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Holly" src="images/StardewShipped/Holly.png" title="Holly" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="1fifthRow">
+                            <td><img class="itemImage" id="Beet" src="images/StardewShipped/Beet.png" title="Beet" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Salmonberry" src="images/StardewShipped/Salmonberry.png" title="Salmonberry" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Amaranth" src="images/StardewShipped/Amaranth.png" title="Amaranth" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Pale Ale" src="images/StardewShipped/Pale_Ale.png" title="Pale Ale" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Hops" src="images/StardewShipped/Hops.png" title="Hops" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Void Egg" src="images/StardewShipped/Void_Egg.png" title="Void Egg" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Mayonnaise" src="images/StardewShipped/Mayonnaise.png" title="Mayonnaise" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Duck Mayonnaise" src="images/StardewShipped/Duck_Mayonnaise.png" title="Duck Mayonnaise" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Void Mayonnaise" src="images/StardewShipped/Void_Mayonnaise.png" title="Void Mayonnaise" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Clay" src="images/StardewShipped/Clay.png" title="Clay" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="1sixthRow">
+                            <td><img class="itemImage" id="Copper Bar" src="images/StardewShipped/Copper_Bar.png" title="Copper Bar" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Iron Bar" src="images/StardewShipped/Iron_Bar.png" title="Iron Bar" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Gold Bar" src="images/StardewShipped/Gold_Bar.png" title="Gold Bar" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Iridium Bar" src="images/StardewShipped/Iridium_Bar.png" title="Iridium Bar" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Refined Quartz" src="images/StardewShipped/Refined_Quartz.png" title="Refined Quartz" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Honey" src="images/StardewShipped/Honey.png" title="Honey" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Pickles" src="images/StardewShipped/Pickles.png" title="Pickles" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Jelly" src="images/StardewShipped/Jelly.png" title="Jelly" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Beer" src="images/StardewShipped/Beer.png" title="Beer" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Wine" src="images/StardewShipped/Wine.png" title="Wine" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="1seventhRow">
+                            <td><img class="itemImage" id="Juice" src="images/StardewShipped/Juice.png" title="Juice" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Clam" src="images/StardewShipped/Clam.png" title="Clam" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Copper Ore" src="images/StardewShipped/Copper_Ore.png" title="Copper Ore" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Iron Ore" src="images/StardewShipped/Iron_Ore.png" title="Iron Ore" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Coal" src="images/StardewShipped/Coal.png" title="Coal" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Gold Ore" src="images/StardewShipped/Gold_Ore.png" title="Gold Ore" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Iridium Ore" src="images/StardewShipped/Iridium_Ore.png" title="Iridium Ore" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Wood" src="images/StardewShipped/Wood.png" title="Wood" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Stone" src="images/StardewShipped/Stone.png" title="Stone" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Nautilus Shell" src="images/StardewShipped/Nautilus_Shell.png" title="Nautilus Shell" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <table id="tableTwo">
+                        <tr id="2firstRow">
+                            <td><img class="itemImage" id="Coral" src="" title="Coral" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Rainbow Shell" src="" title="Rainbow Shell" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Spice Berry" src="" title="Spice Berry" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Sea Urchin" src="" title="Sea Urchin" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Grape" src="" title="Grape" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Spring Onion" src="" title="Spring Onion" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Strawberry" src="" title="Strawberry" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Sweet Pea" src="" title="Sweet Pea" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Common Mushroom" src="" title="Common Mushroom" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Wild Plum" src="" title="Wild Plum" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="2secondRow">
+                            <td><img class="itemImage" id="Hazelnut" src="" title="Hazelnut" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Blackberry" src="" title="Blackberry" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Winter Root" src="" title="Winter Root" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Crystal Fruit" src="" title="Crystal Fruit" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Snow Yam" src="" title="Snow Yam" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Sweet Gem Berry" src="" title="Sweet Gem Berry" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Crocus" src="" title="Crocus" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Red Mushroom" src="" title="Crocus" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Sunflower" src="" title="Sunflower" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Purple Mushroom" src="" title="Purple Mushroom" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="2thirdRow">
+                            <td><img class="itemImage" id="Cheese" src="" title="Cheese" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Goat Cheese" src="" title="Goat Cheese" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Cloth" src="" title="Cloth" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Truffle" src="" title="Truffle" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Truffle Oil" src="" title="Truffle Oil" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Coffee Bean" src="" title="Coffee Bean" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Goat Milk" src="" title="Goat Milk" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Large Goat Milk" src="" title="Large Goat Milk" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Wool" src="" title="Wool" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Duck Egg" src="" title="Duck Egg" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="2fourthRow">
+                            <td><img class="itemImage" id="Duck Feather" src="" title="Duck Feathe" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Rabbit's Foot" src="" title="Rabbit's Foot" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Ancient Fruit" src="images/StardewShipped/Ancient_Fruit.png" title="Ancient Fruit" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Mead" src="" title="Mead" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Tulip" src="" title="Tulip" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Summer Spangle" src="" title="Summer Spangle" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Fairy Rose" src="" title="Fairy Rose" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Blue Jazz" src="" title="Blue Jazz" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Poppy" src="" title="Poppy" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Apple" src="images/StardewShipped/Apple.png" title="Apple" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="2fifthRow">
+                            <td><img class="itemImage" id="Apricot" src="images/StardewShipped/Apricot.png" title="Apricot" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Orange" src="images/StardewShipped/Orange.png" title="Orange" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Peach" src="images/StardewShipped/Peach.png" title="Peach" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Pomegranate" src="images/StardewShipped/Pomegranate.png" title="Pomegranate" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Cherry" src="images/StardewShipped/Cherry.png" title="Cherry" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Bug Meat" src="" title="Bug Meat" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Hardwood" src="" title="Hardwood" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Maple Syrup" src="" title="Maple Syrup" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Oak Resin" src="" title="Oak Resin" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Pine Tar" src="" title="Pine Tar" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                        <tr id="2sixthRow">
+                            <td><img class="itemImage" id="Slime" src="" title="Slime" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Bat Wing" src="" title="Bat Wing" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Solar Essence" src="" title="Solar Essence" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Void Essence" src="" title="Void Essence" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Fiber" src="" title="Fiber" onclick="clickShip(id)" style="opacity: .25"/></td>
+                            <td><img class="itemImage" id="Battery Pack" src="" title="Battery Pack" onclick="clickShip(id)" style="opacity: .25"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="row text-center">
+                <div class="col-sm-6">
+ 
+                </div>
+            </div>
+        </section>
+        
+        
+    </body>
+    
+</html>

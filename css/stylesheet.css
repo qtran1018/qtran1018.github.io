@@ -2,6 +2,10 @@ body {
     background-image:url(/images/Stardew-Valley.jpg);
 }
 
+#shrug {
+    
+}
+
 header {
     border: solid;
     margin-top: 20px;
@@ -29,6 +33,7 @@ header p {
 }
 
 .jumbotron {
+    padding: 1em;
     background-color: white;
     border: solid black;
     margin-left: 20px;
@@ -36,18 +41,31 @@ header p {
     background-image:url(/images/)
 }
 
+.jumbotron h1 {
+    
+}
 
-table {
-    border: 2px solid black;
-    width: auto;
-    flex-wrap: wrap;
-    float: right;
+
+#tableOne {
+    display: block;
+    float: right
+}
+
+#tableOne td {
+    display: inline-block;
+}
+
+#tableTwo {
+    float: left;
+    display: block;
+}
+
+#tableTwo td {
+    display: inline-block;
 }
 
 td {
     border: 1px solid black;
-    width: auto;
-    flex-wrap: wrap
 }
 
 section h1, p {
