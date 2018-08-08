@@ -64,9 +64,7 @@ header p {
     display: inline-block;
 }
 
-td {
-    border: 1px solid black;
-}
+
 
 section h1, p {
     text-align: center;   
