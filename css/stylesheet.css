@@ -48,7 +48,7 @@ header p {
 
 #tableOne {
     display: block;
-    float: right
+    float: right;
 }
 
 #tableOne td {
@@ -69,14 +69,19 @@ td {
 }
 
 section h1, p {
-    text-align: center;
-    
+    text-align: center;   
 }
 
-
+section th {
+    border: solid;
+}
 
 img.itemImage {
     cursor: pointer;
     align-content: center;
     opacity: .25;
+}
+
+#sdMenu {
+    color: azure;
 }
