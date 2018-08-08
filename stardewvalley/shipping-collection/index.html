@@ -11,23 +11,7 @@
         <link rel="stylesheet" href="/css/stylesheet.css">
         <link rel="shortcut icon" type="image/xicon" href="/images/favicon.ico">
         <!-- <script src="/js/bootstrap.min.js"></script> -->
-                    
-        <script>
-            
-            window.onload = function() {
-                let clickShip = (cropID) => {    
-                let item = document.getElementById(cropID);
-                if (item.style.opacity === '1') {
-                    document.getElementById(cropID).style.opacity = '.2';
-                }
-                else {
-                    document.getElementById(cropID).style.opacity = '1';           
-                }           
-            }
-                };
-                            
-        </script>
-
+                
     </head>
 
     <body>
@@ -226,6 +210,17 @@
             </div>
         </section>
         
+        <script>
+            let clickShip = (cropID) => {    
+                let item = document.getElementById(cropID);
+                if (item.style.opacity === '1') {
+                    document.getElementById(cropID).style.opacity = '.2';
+                }
+                else {
+                    document.getElementById(cropID).style.opacity = '1';           
+                }           
+            }                
+        </script>
         
     </body>
     
