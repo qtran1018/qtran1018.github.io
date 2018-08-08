@@ -78,8 +78,6 @@ section th {
 
 img.itemImage {
     cursor: pointer;
-    align-content: center;
-    opacity: .25;
 }
 
 #sdMenu {
