@@ -9,8 +9,7 @@ body {
 header {
     border: solid;
     border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 25px 20px 25px;
     background-color: white;
     /*background-image: url(/images/Wood%20Background.jpg);*/  
 }
@@ -94,6 +93,6 @@ img.itemImage {
 #leftCol{
     background-color: white;
     border: solid black;
-    border-radius: 9px;
-    margin-left: 3em;
+    border-radius: 10px;
+    margin-left: 40px;
 }
