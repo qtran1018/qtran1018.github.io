@@ -1,0 +1,99 @@
+body {
+    background-image:url(/images/Stardew-Valley.jpg);
+}
+
+#shrug {
+    
+}
+
+header {
+    border: solid;
+    border-radius: 20px;
+    margin: 20px 25px 20px 25px;
+    background-color: white;
+    /*background-image: url(/images/Wood%20Background.jpg);*/
+    
+}
+
+header a, a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+header h1 {
+    padding: 20px;
+    color:black;;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    
+}
+
+header nav {
+    padding-top: 20px;
+    display: inline-flex;
+    margin: auto; 
+    flex-wrap: wrap;
+}
+
+header p {
+    margin-right: 10px;
+}
+
+.jumbotron {
+    padding: 1em;
+    background-color: white;
+    border: solid black;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-image:url(/images/)
+}
+
+.jumbotron h1 {
+    
+}
+
+
+#tableOne {
+    display: block;
+    float: right;
+}
+
+#tableOne td {
+    display: inline-block;
+}
+
+#tableTwo {
+    float: left;
+    display: block;
+}
+
+#tableTwo td {
+    display: inline-block;
+}
+
+
+
+section h1, p {
+    text-align: center;   
+}
+
+section th {
+    border: solid;
+}
+
+img.itemImage {
+    cursor: pointer;
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#leftCol{
+    background-color: white;
+    border: solid black;
+    border-radius: 10px;
+    margin-left: 40px;
+}

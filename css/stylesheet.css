@@ -1,98 +1,61 @@
 body {
-    background-image:url(/images/Stardew-Valley.jpg);
+    background-color: rgb(19, 21, 25);
+    font-family: Roboto;
 }
 
-#shrug {
-    
+body h2 {
+    color: white;
+    margin-top: 10px;
 }
 
-header {
-    border: solid;
-    border-radius: 20px;
-    margin: 20px 25px 20px 25px;
-    background-color: white;
-    /*background-image: url(/images/Wood%20Background.jpg);*/  
+header, footer {
+    background-color: rgb(24, 30, 43);
 }
 
 header a, a:hover {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
 header h1 {
     padding: 20px;
-    color:black;;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    
+    color: white;
+}
+
+header h3 {
+    padding-top: 30px;
+    color: white;
 }
 
 header nav {
-    padding-top: 20px;
+    padding-top: 10px;
     display: inline-flex;
     margin: auto; 
     flex-wrap: wrap;
+}
+
+nav a {
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 header p {
     margin-right: 10px;
 }
 
-.jumbotron {
-    padding: 1em;
-    background-color: white;
-    border: solid black;
-    border-radius: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-image:url(/images/)
-}
-
-.jumbotron h1 {
-    
+.imgCase img {
+    padding: 5px;
+    margin-bottom: 20px;
 }
 
 
-#tableOne {
-    display: block;
-    float: right;
+footer h1, footer h5 {
+    color: white;
 }
 
-#tableOne td {
-    display: inline-block;
-}
-
-#tableTwo {
-    float: left;
-    display: block;
-}
-
-#tableTwo td {
-    display: inline-block;
-}
-
-
-
-section h1, p {
-    text-align: center;   
-}
-
-section th {
-    border: solid;
-}
-
-img.itemImage {
-    cursor: pointer;
-    user-drag: none; 
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
-
-#leftCol{
-    background-color: white;
-    border: solid black;
-    border-radius: 10px;
-    margin-left: 40px;
+.content {
+    padding-bottom: 15px;
+    color: white;
+    font-family: Calibri;
+    text-align: left;
 }
