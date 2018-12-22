@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HEROLIST>
+	<HERO>
+		<NAME>Abel</NAME>
+		<TYPE>Support</TYPE>
+		<ROLE>Support</ROLE>
+		<ELEMENT>Light</ELEMENT>
+	</HERO>
+	<HERO>
+		<NAME>Amon</NAME>
+		<TYPE>Tank</TYPE>
+		<ROLE>Tank/Buff</ROLE>
+		<ELEMENT>Light</ELEMENT>
+	</HERO>
+		<HERO>
+		<NAME>Belle</NAME>
+		<TYPE>Hybrid</TYPE>
+		<ROLE>CC</ROLE>
+		<ELEMENT>Water</ELEMENT>
+	</HERO>
+		<HERO>
+		<NAME>Britten</NAME>
+		<TYPE>Attack</TYPE>
+		<ROLE>AoE/Buffer</ROLE>
+		<ELEMENT>Light</ELEMENT>
+	</HERO>	<HERO>
+		<NAME>Cain</NAME>
+		<TYPE>Attack</TYPE>
+		<ROLE>Single Target/Anti Heal</ROLE>
+		<ELEMENT>Dark</ELEMENT>
+	</HERO>
+		<HERO>
+		<NAME>Chesire</NAME>
+		<TYPE>Hybrid</TYPE>
+		<ROLE>Curse/Buffer</ROLE>
+		<ELEMENT>Dark</ELEMENT>
+	</HERO>
+</HEROLIST>

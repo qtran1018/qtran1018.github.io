@@ -8,63 +8,17 @@
         <meta name="author" content="Quang Tran">
         
         <link rel="stylesheet" href="stylesheet.css"/>
+        <script src="make-table.js"></script>
     </head>
     
-    <body>
-                                                <script>
-                                            function myFunction() {
-                                              // Declare variables
-                                              var input, filter, table, tr, td, i, txtValue;
-                                              input = document.getElementById("myInput");
-                                              filter = input.value.toUpperCase();
-                                              table = document.getElementById("heroes");
-                                              tr = table.getElementsByTagName("tr");
-
-                                              // Loop through all table rows, and hide those who don't match the search query
-                                              for (i = 0; i < tr.length; i++) {
-                                                td = tr[i].getElementsByTagName("td")[0];
-                                                if (td) {
-                                                  txtValue = td.textContent || td.innerText;
-                                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                    tr[i].style.display = "";
-                                                  } 
-                                                    else {
-                                                    tr[i].style.display = "none";
-                                                  }
-                                                }
-                                              }
-                                            }
-                                            </script>    
+    <body onload="loadXMLDoc();">
+        
         <header>
             <h1>Knights Chronicles Wiki</h1>
         </header>
         
         <div>
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-            <table id="heroes">
-                <tr class="header">
-                    <th></th>
-                    <th>Name</th>
-                    <th>Element</th>
-                    <th>Type</th>
-                </tr>
-                <tr>
-                    <img src="nikita.PNG" width="60"/>
-                    <td>Nikita</td>
-                    <td>Fire</td>
-                    <td>Attack</td>
-                </tr>
-                <tr>
-                    <td>Morrigan</td>
-                    <td>Fire</td>
-                    <td>Attack</td>
-                </tr>
-                <tr>
-                    <td>Amon</td>
-                    <td>Light</td>
-                    <td>Tank</td>
-                </tr>
-            </table>
+            <table id="hero-table"></table>
         </div>
         
     </body>
