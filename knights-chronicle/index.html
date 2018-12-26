@@ -7,6 +7,7 @@
         <meta name="description" content="Practicing my Web Dev">
         <meta name="author" content="Quang Tran">
         
+        <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="stylesheet.css"/>
         <script src="make-table.js"></script>
     </head>
@@ -14,11 +15,34 @@
     <body onload="loadXMLDoc();">
         
         <header>
-            <h1>Knights Chronicles Wiki</h1>
+            <div class="row">
+                <nav class="col-sm-1">
+                    <a href="/knights-chronicle/"><img src="logo.png" id="logo" alt="KC Logo" title="KC Home"/></a>
+                    <a href="/"><img src="Holo.png" id="home-button" alt="Home Page" title="Project Home"/></a>
+                </nav>
+                <nav class="col-sm-8" id="nav-buttons">
+                    <h1>Knights Chronicles</h1>
+                    <h3>Menu</h3>
+                    <h3>Wiki</h3>
+                    <h3>And another one</h3>
+                </nav>
+                
+            </div>
         </header>
         
-        <div>
+        <div id="banner">
+        </div>
+        <input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search for names..">
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            
+            <div class="col-lg-8">
             <table id="hero-table"></table>
+            </div>
+            
+            <div class="col-lg-2">
+            </div>
         </div>
         
     </body>

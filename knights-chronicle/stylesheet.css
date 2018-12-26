@@ -1,18 +1,66 @@
-
-#hero-table tr, td {
-    text-align: left;
-    padding-right: 100px;
-    padding-bottom: 5px;
-    padding-top:5px;
-    word-wrap: normal;
+header {
+    background-color: #212529;
+    margin: 0;
+    padding: 0;
 }
 
-#hero-table th {
-    text-align: center;
+header h1, header h3 {
+    color: aliceblue;
+    font-family: 'Acme', sans-serif;
+    padding-top: 6px;
+    margin: 0;
+    display: inline-block;
+}
+
+header h3 {
+    padding: 0px 5px 0px 5px;
+}
+
+header nav {
+    margin: 0;
+    padding: 0;
+}
+
+#home-button {
+    width: 62px;
+    margin-left: 4px;
+    display: inline-block;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    background-image:url(/knights-chronicle/banner.jpg);
+    background-size: cover;
+    height: 200px;
+    border-bottom: solid black 1px;
+}
+
+#hero-table {
+    table-layout: auto;
+    width: 100%;
 }
 
 #hero-table, th, tr, td {
     border: 1px solid black;
     border-collapse: collapse;
     border-right: 1px solid black;
+    table-layout: fixed;
+}
+
+#hero-table tr, td, th {
+    text-align: left;
+    padding-right: 100px;
+    padding-bottom: 5px;
+    padding-top:5px;
+    word-wrap: normal;
+    table-layout: fixed;
+}
+
+#hero-table th, #hero-table tr:hover {
+    background-color: #f1f1f1;
+    text-align: center;
 }
