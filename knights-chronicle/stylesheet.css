@@ -21,6 +21,10 @@ header nav {
     padding: 0;
 }
 
+header nav-buttons {
+    padding-top: 1000px;
+}
+
 #home-button {
     width: 62px;
     margin-left: 4px;
@@ -37,6 +41,11 @@ html, body {
     background-size: cover;
     height: 200px;
     border-bottom: solid black 1px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    margin-bottom: 10px;
 }
 
 #hero-table {
