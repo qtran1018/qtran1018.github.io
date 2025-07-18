@@ -22,7 +22,9 @@ nav {
 
 .project-link {
     color: #ea4d2d;
+    height: 30px;
 }
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -36,6 +38,13 @@ nav img {
 a {
     text-decoration: none;
 }
+
+a:hover {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 5px;
+}
+
 h1, h2, h3, p, a {
     color: #eaedf3;
 }
@@ -45,7 +54,7 @@ figure, figcaption {
     color: #eaedf3;
 }
 
-#project-list, ul {
+#project-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -55,4 +64,46 @@ figure, figcaption {
     color: #eaedf3;
     list-style: circle;
     margin-left: 20px;
+}
+
+.project-images img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+.project-images figure {
+    margin-bottom: 1.5rem
+}
+.project-images figcaption {
+    text-align: center;
+}
+#pic-of-me {
+    height: 300px;
+}
+
+.me-summary {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: white;
+}
+
+.me-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.me-text ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0;
+}
+
+#email-link {
+    color: #ea4d2d;
 }
