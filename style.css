@@ -67,7 +67,7 @@ figure, figcaption {
 }
 
 .project-images img {
-    max-width: 100%;
+    max-width: 48rem;
     height: auto;
     display: block;
     margin: 1rem 0;
@@ -81,6 +81,7 @@ figure, figcaption {
 }
 .project-images figcaption {
     text-align: center;
+    padding-top: 5px;
 }
 
 .key-features ul {
