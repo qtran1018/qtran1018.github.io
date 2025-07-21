@@ -60,10 +60,10 @@ figure, figcaption {
     margin: 0;
 }
 
-.project-tools {
+.project-bullets {
     color: #eaedf3;
     list-style: circle;
-    margin-left: 20px;
+    padding-left: 1.25rem;
 }
 
 .project-images img {
@@ -81,6 +81,16 @@ figure, figcaption {
 }
 .project-images figcaption {
     text-align: center;
+}
+
+.key-features ul {
+    list-style: none;
+    padding-left: 0rem;
+}
+
+.list-item-description {
+    padding-left: 2rem;
+    padding-bottom: 1rem;
 }
 #pic-of-me {
     height: 300px;

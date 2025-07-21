@@ -27,26 +27,51 @@
                     Link to repository
                 </a>
                 <h3>WGU Capstone Project</h3>
-                <p>Utilizing popular Python libraries and historical weather data for the Worcester MA region gathered from NOAA, I created a machine learning application that forecasts 
-                    weather for either the next day or future days based on the current or latest available day's weather.
-                </p>
-                <p>This model uses linear regression to make predictions. The use of Long Short-Term Memory (LSTM) via Tensorflow was considered and modeled, but a simpler linear regression model was chosen.</p>
-                <p>Below are the tools and libraries used:</p>
-                <ul class="project-tools">
-                    <li>Python</li>
-                    <li>Visual Studio Code</li>
-                    <li>Scikit-learn - data modeling and predictions</li>
-                    <li>Pandas - data manipulation and analysis</li>
-                    <li>NumPy - data manipulation and regression line fitting</li>
-                    <li>Matplotlib - data visualzation</li>
-                    <li>TKinter - application UI</li>
-                </ul>
+                <p>This desktop application uses machine learning to forecast future weather conditions for the Worcester, MA region. Built with Python and powered by historical data from NOAA, the app allows users to input the latest available weather data and receive forecasts for the next day or future dates.</p>
+                <p>Initially, I explored using an LSTM model via TensorFlow to capture sequential patterns in the data. However, after testing and comparing approaches, I opted for a linear regression model for its simplicity, interpretability, and competitive performance on this dataset.</p>
+                <p>The application is built with a clean UI using Tkinter and includes interactive visualizations to display forecasted temperatures and weather trends. This project sharpened my skills in data preprocessing, model evaluation, and building user-facing tools for real-world prediction tasks.</p>
+                <hr>
+                <div class="key-features">
+                    <h2>Key Features</h2>
+                    <ul class="project-bullets">
+                        <li><b>📈 Next-day & multi-day forecasting</b></li>
+                        <li class="list-item-description">Enter current or most recent weather stats and receive accurate predictions for the next day or further into the week.</li>
+                        <li><b>🧠 Machine learning model powered by Scikit-learn</b></li>
+                        <li class="list-item-description">Uses a linear regression model trained on historical NOAA weather data to predict temperature and related metrics.</li>
+                        <li><b>🖼️ Interactive UI with Tkinter</b></li>
+                        <li class="list-item-description">A lightweight Python desktop interface allows users to input data and view predictions in a clean, intuitive layout.</li>
+                        <li><b>📊 Visual trend plots with Matplotlib</b></li>
+                        <li class="list-item-description">Forecasts are displayed with matplotlib-generated graphs, helping users visualize changes over time.</li>
+                        <li><b>🔬 Comparative model design</b></li>
+                        <li class="list-item-description">Explored a Long Short-Term Memory model (via TensorFlow) but ultimately selected a linear regression for its speed, performance, and clarity.</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="tech-stack">
+                    <h3>Language</h3>
+                    <ul class="project-bullets">
+                        <li>Python</li>
+                    </ul>
+                    <h3>IDE</h3>
+                    <ul class="project-bullets">
+                        <li>Visual Studio Code</li>
+                    </ul>
+                    <h3>Libraries</h3>
+                    <ul class="project-bullets">
+                        <li>Scikit-learn – Model training and evaluation</li>
+                        <li>Pandas – Data cleaning and manipulation</li>
+                        <li>NumPy – Numerical operations and regression fitting</li>
+                        <li>Matplotlib – Data visualization</li>
+                        <li>Tkinter – GUI development</li>
+                    </ul>
+                </div>
+
                 <hr>
                 <h3>Figures</h3>
                 <div class="project-images">
                     <figure>
                         <img src="/assets/images/project-image/weather-prediction/Weather Prediction.png"/>
-                        <figcaption>Fig. 1 - Prediction for next-day weather.</figcaption>
+                        <figcaption>Fig. 1 - Prediction for next-day weather. Insert last day's data into the fields.</figcaption>
                     </figure>
                     <figure>
                         <img src="/assets/images/project-image/weather-prediction/Graph prediction.png"/>

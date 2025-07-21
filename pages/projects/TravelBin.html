@@ -21,69 +21,98 @@
             </section>
             <hr>
             <section id="projects">
-                <h2>TravelBin - Travel Planner</h2>
-
-                <h3></h3>
+                <h1>TravelBin - Travel Planner</h1>
                 <p>Inspired by Wanderlog, Google Sheets, Pastebin, Partiful, and soon Splitwise.</p>
-                <p>TravelBin is a travel planning web application where you can collaboratively work with friends and family to plan your next trip. 
-                    You can create an account, make a list for wherever you want to go, and start adding activities. 
-                    Share the link to your unique trip to whoever you'd like and add them via email address if they have an account to co-edit your next vacation.</p>
-                <p>The idea for this came from other apps that do something similar but I had gripes about using. While Wanderlog is a great app for trip planning, I didn't
-                    like how "busy" the app looked. Features are aplenty but it became visually cluttered, moreso on the mobile app. 
-                    This lead me to use the idea of Wanderlog, simplicity of PasteBin and Partiful's UI, and collaborative editing of Google Sheets to create my own app.</p>
-                <div>
-                    <p>Below are the tools and libraries used:</p>
-                    <ul class="project-tools">
-                        <li>Python</li>
-                        <li>HTML, CSS, JavaScript</li>
-                        <li>Visual Studio Code</li>
-                        <li>Django - backend framework</li>
-                        <li>Django Rest Framework - REST API building</li>
-                        <li>SQLite - database, AWS PostgreSQL when hosted on Heroku</li>
-                        <li>Google OAuth 2.0 - optional user account creation and authentication</li>
-                        <li>React.js - frontend framework</li>
-                        <li>Figma - design and planning</li>
-                        <li>Jira - task and ticket management</li>
+                <p>TravelBin is a web application designed to make trip planning simple and collaborative. 
+                    Create an account, start a travel list for your destination, add activities, and share your unique trip link with friends or family. 
+                    If they have an account, you can also invite them via email to co-edit the itinerary with you in real-time.</p>
+                <p>The idea for TravelBin was inspired by existing tools like Wanderlog—but with a twist. 
+                    While Wanderlog offers many features, I found its interface too cluttered, especially on mobile. 
+                    I wanted something cleaner and more focused. So I took the concept of collaborative planning, blended it with the simplicity of Pastebin, 
+                    the visual appeal of Partiful, and the shared editing experience of Google Sheets—to build an app that felt intuitive, lightweight, and easy to use.</p>
+                <hr>
+                <div class="key-features">
+                    <h2>Key Features</h2>
+                    <ul class="project-bullets">
+                        <li><b>✅ Account creation & authentication</b></li>
+                        <li class="list-item-description">Users can register for an account and securely log in using a custom authentication system, ensuring only authorized users can create and edit trips. Session management is handled via JSON Web Tokens (JWT) for secure access.</li>
+                        <li><b>📝 Trip creation and activity tracking</b></li>
+                        <li class="list-item-description">After logging in, users can create a new trip with a custom name and destination. Within each trip, they can add planned activities like sightseeing spots, reservations, or to-dos—structured in a way that keeps trip planning organized.</li>
+                        <li><b>📩 Email-based collaboration</b></li>
+                        <li class="list-item-description">Users can invite others to co-edit a trip by entering their email addresses. If the invited user has an account, they’ll be added as a collaborator, enabling real-time updates and shared editing capabilities.</li>
+                        <li><b>🔗 Shareable links for view-only access</b></li>
+                        <li class="list-item-description">Each trip has a unique public link that can be shared with friends or family. Visitors with the link can view the trip plan without needing an account, making it easy to share plans with people who just want to see, not edit.</li>
+                        <li><b>🌐 Fully responsive design</b></li>
+                        <li class="list-item-description">The UI is optimized for mobile, tablet, and desktop views. Whether users are planning on their laptop or checking an itinerary on their phone, the app remains clean and easy to navigate.</li>
                     </ul>
                 </div>
-                <p></p>
                 <hr>
-                <h3 class="figures-title">Figures</h3>
-                <div class="project-images">
-                    <figure>
-                        <img src="/assets/images/project-image/travel-planner/registration.png"/>
-                        <figcaption>Fig. 1 - user registration page, traditional or Google OAuth</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="/assets/images/project-image/travel-planner/login.png"/>
-                        <figcaption>Fig. 2 - login page.</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="/assets/images/project-image/travel-planner/profile page.png"/>
-                        <figcaption>Fig. 3 - logged in user's profile page displaying travel destinations. Add more here.</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="/assets/images/project-image/travel-planner/profile page not logged in.png" style="width: 400px;"/> <!-- Inline CSS because image is a little too big. -->
-                        <figcaption>Fig. 4 - Profile page being viewed while logged out or not as the profile's user.</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="/assets/images/project-image/travel-planner/destination page logged in.png"/>
-                        <figcaption>Fig. 5 - Destination's entry list while logged in. Only users part of this destination can add and edit.</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="/assets/images/project-image/travel-planner/destination page logged out.png"/>
-                        <figcaption>Fig. 6 - Destination's entry list while logged out. Anyone with the link can view this.</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="/assets/images/project-image/travel-planner/light mode.png"/>
-                        <figcaption>Fig. 7 - Light mode/dark mode toggle available throughout the app.</figcaption>
-                    </figure>
-                    <figure>
-                        <a href="/assets/images/project-image/travel-planner/figma full.png" target="_blank">
-                            <img src="/assets/images/project-image/travel-planner/figma sceenshot.png" alt="Figma screenshot"/>
-                        </a>
-                        <figcaption>Fig. 8 - Figma planning. Click the picture for the full image.</figcaption>
-                    </figure>
+                <h2>Tech Stack</h2>
+                <div class="tech-stack">
+                    <h3>Frontend</h3>
+                    <ul class="project-bullets">
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>React.js</li>
+                    </ul>
+                    <h3>Backend</h3>
+                    <ul class="project-bullets">
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>Django Rest Framework</li>
+                    </ul>
+                    <h3>Database</h3>
+                    <ul class="project-bullets">
+                        <li>SQLite – AWS PostgreSQL when hosted on Heroku</li>
+                    </ul>
+                    <h3>Other</h3>
+                    <ul class="project-bullets">
+                        <li>Visual Studio Code</li>
+                        <li>Google OAuth 2.0 – optional for user account creation and authentication</li>
+                        <li>Figma – design and planning</li>
+                        <li>Jira – task and ticket management</li>
+                        <li>JSON Web Tokens (JWT) – secure user authentication</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="figures">
+                    <h3 class="figures-title">Figures</h3>
+                    <div class="project-images">
+                        <figure>
+                            <a href="/assets/images/project-image/travel-planner/figma full.png" target="_blank">
+                                <img src="/assets/images/project-image/travel-planner/figma sceenshot.png" alt="Figma screenshot"/>
+                            </a>
+                            <figcaption>Fig. 1 - Figma planning. Click for the full image.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/assets/images/project-image/travel-planner/registration.png"/>
+                            <figcaption>Fig. 2 - user registration form, traditional or Google OAuth</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/assets/images/project-image/travel-planner/login.png"/>
+                            <figcaption>Fig. 3 - login form.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/assets/images/project-image/travel-planner/profile page.png"/>
+                            <figcaption>Fig. 4 - logged in user's profile page displaying travel destinations. Add more here.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/assets/images/project-image/travel-planner/profile page not logged in.png" style="width: 400px;"/> <!-- Inline CSS because image is a little too big. -->
+                            <figcaption>Fig. 5 - Profile page being viewed while logged out or not as the profile's user.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/assets/images/project-image/travel-planner/destination page logged in.png"/>
+                            <figcaption>Fig. 6 - Destination's entry list while logged in. Only users part of this destination can add and edit.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/assets/images/project-image/travel-planner/destination page logged out.png"/>
+                            <figcaption>Fig. 7 - Destination's entry list while logged out. Anyone with the link can view this.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/assets/images/project-image/travel-planner/light mode.png"/>
+                            <figcaption>Fig. 8 - Light mode/dark mode toggle available throughout the app.</figcaption>
+                        </figure>
+                        
+                    </div>
                 </div>
             </section>
         </main>
