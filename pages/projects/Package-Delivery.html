@@ -14,12 +14,9 @@
                 <a href="https://www.linkedin.com/in/qtran1018/" target="_blank"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn"></a>
                 </div>
             </nav>
+            <hr>
         </header>
         <main>
-            <section id="project-description">
-
-            </section>
-            <hr>
             <section id="projects">
                 <h2>Package Delivery Router - Traveling Salesperson Problem</h2>
                 <a href="https://github.com/qtran1018/Traveling-Salesman-App-C950" alt="GitHub Link">
@@ -27,19 +24,43 @@
                     Link to repository
                 </a>
                 <h3>WGU Data Structures and Algorithms Project</h3>
-                <p>This command-line application simulates package delivery logistics in the Salt Lake City, UT area. 
-                    It uses a nearest neighbor algorithm to generate efficient delivery routes for three trucks, each pre-loaded with packages. 
-                    The system tracks and updates delivery times and statuses throughout the simulation.</p>
-                <p>Package data is provided via a spreadsheet, and a distance matrix defines the travel distances between all addresses. 
-                    To prioritize speed and scalability, the implementation leverages hash maps for quick lookups and a nearest neighbor approach 
-                    for route calculation—balancing simplicity and performance for real-world-like logistics handling.</p>
-                <p>Below are the tools and methods used:</p>
-                <ul class="project-bullets">
-                    <li>Python</li>
-                    <li>Visual Studio Code</li>
-                    <li>Hashmap data structure</li>
-                    <li>Nearest Neighbor Algorithm</li>
-                </ul>
+                <p>This command-line Python application simulates package delivery logistics for a fictional shipping company operating in the Salt Lake City, UT area. Designed as part of WGU’s Data Structures and Algorithms coursework, the system models real-world delivery constraints, using a nearest neighbor algorithm to optimize delivery routes across three trucks.</p>
+                <p>The application reads package information from a spreadsheet and calculates efficient delivery paths using a distance matrix that maps address-to-address travel times. It also simulates delivery progression, tracking timestamps and package statuses throughout the day.</p>
+                <p>To ensure fast lookups and smooth scalability, hash maps were used to manage package data, and a greedy nearest neighbor algorithm was implemented for route planning—favoring practicality and performance in a limited-time scenario.</p>
+                <hr>
+                <div class="key-features">
+                    <h2>Key Features</h2>
+                    <ul class="project-bullets">
+                        <li><b>🚚 Multi-truck delivery simulation</b></li>
+                        <li class="list-item-description">Simulates real-time deliveries for three trucks, each pre-loaded with different packages and subject to specific time constraints.</li>
+                        <li><b>📍 Route optimization with nearest neighbor</b></li>
+                        <li class="list-item-description">Implements a greedy algorithm to create efficient delivery sequences with minimal total distance traveled.</li>
+                        <li><b>🧮 Hash maps for fast data access</b></li>
+                        <li class="list-item-description">Package data is stored in custom hash maps to allow constant-time lookups, improving performance across thousands of operations.</li>
+                        <li><b>🗂️ Spreadsheet & distance matrix integration</b></li>
+                        <li class="list-item-description">Uses a CSV file for package input and a distance matrix to calculate shortest paths between delivery points.</li>
+                        <li><b>⏱️ Delivery status tracking</b></li>
+                        <li class="list-item-description">Updates and displays delivery time and status as the simulation runs, mimicking the timeline of a real distribution process.</li>
+                    </ul>
+                </div>
+                <hr>
+                <h2>Tech Stack</h2>
+                <div class="tech-stack">
+                    <h3>Language</h3>
+                    <ul class="project-bullets">
+                        <li>Python</li>
+                    </ul>
+                    <h3>IDE</h3>
+                    <ul class="project-bullets">
+                        <li>Visual Studio Code</li>
+                    </ul>
+                    <h3>Key Concepts</h3>
+                    <ul class="project-bullets">
+                        <li>Custom Hash Map for package storage</li>
+                        <li>Nearest Neighbor Algorithm for delivery route calculation</li>
+                        <li>File I/O using CSV for package and distance data</li>
+                    </ul>
+                </div>
                 <hr>
                 <h3>Figures</h3>
                 <div class="project-images">
