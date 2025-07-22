@@ -44,6 +44,11 @@
                         </ul>
                     </div>
                 </div>
+
+                <div id="iphone-message" style="display: none; color:white;">
+                    <p>📱 Hey there, iPhone user! If you see this, my picture may be sideways as a quirk of iPhones and picture orientation data. If you're not on iPhone... oops 😅.</p>
+                </div>
+
                 <p> 👋 Hey, I'm Quang! I recently earned a B.S. in Computer Science from Western Governors University. 
                     This was actually my second degree—I pursued it to learn how to build cool things.
                 </p>
@@ -84,5 +89,12 @@
             <p>© 2025 Quang Tran | All rights probably reserved 😄</p>
             <a id="email-link" href="mailto:qtran1018@gmail.com">📧 Send me an email</a>
         </footer>
+
+        <script>
+            const isIPhone = /iPhone/.test(navigator.userAgent) && !window.MSStream;
+            if (isIPhone) {
+                document.getElementById('iphone-message').style.display = 'block';
+            }
+        </script>
     </body>
 </html>
