@@ -4,6 +4,7 @@
         <title>Quang Tran | Software Engineer Portfolio</title>
         <link rel="stylesheet" href="style.css">
         <link rel="icon" href="/assets/images/icons/favicon.ico" type="image/x-icon" />
+        <script src="/assets/scripts/iphone-check.js" defer></script>
     </head>
     <body>
         <header>
@@ -90,12 +91,5 @@
             <p>© 2025 Quang Tran | All rights probably reserved 😄</p>
             <a id="email-link" href="mailto:qtran1018@gmail.com">📧 Send me an email</a>
         </footer>
-
-        <script>
-            const isIPhone = /iPhone/.test(navigator.userAgent) && !window.MSStream;
-            if (isIPhone) {
-                document.getElementById('iphone-message').style.display = 'block';
-            }
-        </script>
     </body>
 </html>
