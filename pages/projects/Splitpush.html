@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="icon" href="/assets/images/icons/project-svg/money.svg" type="image/x-icon" />
+        <title>Splitpush | Quang Tran</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <h2><a href="/">Quang Tran</a></h2>
+                <div class="nav-links">
+                <a href="/assets/documents/Quang Tran CV.pdf" target="_blank"><img src="/assets/images/icons/resume.svg" alt="Resume"></a>
+                <a href="https://github.com/qtran1018" target="_blank"><img src="/assets/images/icons/github-mark-white.svg" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/qtran1018/" target="_blank"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn"></a>
+                </div>
+            </nav>
+            <hr>
+        </header>
+        <main>
+            <section id="projects">
+                <h2>Splitpush - Group Expense Management</h2>
+                <a href="https://splitpush.onrender.com/" target="_blank"><h3>Splitpush 🔗</h3></a>
+                <p>Splitpush is a full-stack expense-sharing platform that allows groups to track shared costs, split bills, and settle balances across multiple trips or events. 
+                    Users can create trips, add participants, record expenses, and automatically calculate who owes whom. 
+                    The system supports both per-trip settlements and global cross-trip balancing, giving users flexible ways to manage group expenses. Mobile support included.</p>
+                <p>Created with the help of the AI code assistant Cursor (similar to Anthropic's Claude for coding and Microsoft's Copilot), this was my first project using AI coding assistants. 
+                    Although a short project, it gave me insights into how these LLM-based technologies could help accelerate basic development after I had conjured up an idea.
+                    <br><br>
+                    I realized there was still much of the normal process that needed consideration, but the overall flow remained similar:
+                </p>
+                <ol>
+                    <li>💡Determine the idea. Simple enough, I can come up with some ideas.</li>
+                    <li>🛠️Choose a tech stack. I heard Java Spring Boot is popular, and PostgreSQL is widely used, so that worked well. REST APIs are still the most common and I understand them. GraphQL could work, but I'll leave that for another project.</li>
+                    <li>🧑‍💻Write some code.</li>
+                    <li>🔧QA test and fix whatever broke. While getting help from Cursor, this step felt like the most time-consuming part. Unit tests helped a lot, but there were many tiny breaks that kept popping up.</li>
+                    <li>✨Add in more small features and changes until it felt sufficiently complete.
+                        <br>In a formal project setting, this would probably involve Change Requests sent to Change Control. Unfortunately for the devs (me), the stakeholders (me) pushed for many changes, so Change Control (me) approved everything.</li>
+                </ol>
+                <hr>
+                <div class="key-features">
+                    <h2>Key Features</h2>
+                    <ul class="project-bullets">
+                        <li><b>✅ Secure account creation & login</b></li>
+                        <li class="list-item-description">Users can register and authenticate with their email and a securely hashed password. Spring Security handles session protection, authentication flows, and access control across the app.</li>
+                        <li><b>👥 Trip group creation & collaboration</b></li>
+                        <li class="list-item-description">Users can create trip groups, invite members, and manage shared expenses. Each group supports multiple participants with permissions that prevent invalid edits or removals.</li>
+                        <li><b>💰 Flexible expense tracking & splitting</b></li>
+                        <li class="list-item-description">Within each group, users can add, edit, and delete expenses with customizable split options. Detailed participant info and clear breakdowns ensure transparency for every transaction.</li>
+                        <li><b>📊 Balance dashboard with smart calculations</b></li>
+                        <li class="list-item-description">A clean dashboard summarizes who owes whom, showing both per-group amounts and net totals across all activities. The logic automatically aggregates balances to simplify settling up.</li>
+                        <li><b>🤝 Settlement tracking</b></li>
+                        <li class="list-item-description">Users can record settlements with validation to prevent duplicate or inconsistent payments. All settlements update group and global balances instantly.</li>
+                        <li><b>🧭 Group lifecycle management</b></li>
+                        <li class="list-item-description">Groups can be joined via ID and left when balances are settled. Empty groups are automatically cleaned up to keep the workspace organized.</li>
+                        <li><b>🌗 Light & dark mode theming</b></li>
+                        <li class="list-item-description">A modern theme system with CSS variables lets users switch between light and dark mode. Preferences are saved for a consistent experience across sessions.</li>
+                        <li><b>⚡ Performance optimization with caching</b></li>
+                        <li class="list-item-description">Caffeine cache is used to reduce repeated database queries and speed up rendering for group lists, expenses, and balance summaries.</li>
+                        <li><b>🧾 Detailed expense history</b></li>
+                        <li class="list-item-description">Users can browse a full paginated history of all group expenses, complete with participant details and timestamps for clear auditability.</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="tech-stack">
+                    <h3>Frontend</h3>
+                    <ul class="project-bullets">
+                        <li>JavaScript, HTML, CSS</li>
+                        <li>Thymeleaf</li>
+                    </ul>
+                    <h3>Backend</h3>
+                    <ul class="project-bullets">
+                        <li>Java</li>
+                        <li>Spring Boot</li>
+                        <li>Spring Security</li>
+                        <li>Spring Data JPA</li>
+                        <li>Spring Cache (Caffeine)</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                    <h3>Other</h3>
+                    <ul class="project-bullets">
+                        <li>Docker & Docker Compose for local development and deployment</li>
+                        <li>Maven for project build and dependency management</li>
+                        <li>Render / Aiven for hosting and managed Postgres</li>
+                        <li>Cursor</li>
+                        <li>Visual Studio Code</li>
+                    </ul>
+                </div>
+
+                <hr>
+                <h3>Figures</h3>
+                <div class="project-images">
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/1 - landing page.png"/>
+                        <figcaption>Fig. 1 - Home page when the user is not logged into an account.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/2 - create account.png"/>
+                        <figcaption>Fig. 2 - Account creation form</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/3 - login.png"/>
+                        <figcaption>Fig. 3 - Login form</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/4 - dashboard.png"/>
+                        <figcaption>Fig. 4 - Dashboard to see all of the user's outstanding balances with others.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/5 - record settlement.png"/>
+                        <figcaption>Fig. 5 - Form to record a completed settlement the user sent to another. If a part of more than 1 group with the
+                            other user, it displays each group as a separate transaction.
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/6 - settlement history.png"/>
+                        <figcaption>Fig. 6 - A history of all completed settlements the user is a part of.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/7 - group page.png"/>
+                        <figcaption>Fig. 7 - Page displaying all groups the user is a part of. Create, join, or leave groups here.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/8 - group expenses.png"/>
+                        <figcaption>Fig. 8 - Displays a list of all recorded expenses as part of a group, showing the amounts and users involved.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/9 - add expense.png"/>
+                        <figcaption>Fig. 9 - Form to record an expense.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/10 - pagination.png"/>
+                        <figcaption>Fig. 10 - Expense page implements a 10-size pagination to reduce excess data transfer.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/12 - mobile dashboard.png"/>
+                        <figcaption>Fig. 11 - Mobile version for Expenses page.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/13 - mobile expenses.png"/>
+                        <figcaption>Fig. 12 - Mobile dashboard view.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/assets/images/project-image/splitpush/11 - docker images.png"/>
+                        <figcaption>Fig. 13 - Docker screenshot showing the container with the app image and postgres image run locally.</figcaption>
+                    </figure>
+                </div>
+            </section>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright © 2025 ? | All rights probably reserved</p>
+            <a id="email-link" href="mailto:qtran1018@gmail.com">Send me an email</a>
+        </footer>
+    </body>
+</html>

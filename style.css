@@ -45,7 +45,7 @@ a:hover {
   text-underline-offset: 5px;
 }
 
-h1, h2, h3, p, a {
+h1, h2, h3, p, a , li{
     color: #eaedf3;
 }
 
