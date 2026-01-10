@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="icon" href="/assets/images/icons/project-svg/money.svg" type="image/x-icon" />
+        <title>intonational | Quang Tran</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <h2><a href="/">Quang Tran</a></h2>
+                <div class="nav-links">
+                <a href="/assets/documents/Quang Tran Resume.pdf" target="_blank"><img src="/assets/images/icons/resume.svg" alt="Resume"></a>
+                <a href="https://github.com/qtran1018" target="_blank"><img src="/assets/images/icons/github-mark-white.svg" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/qtran1018/" target="_blank"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn"></a>
+                </div>
+            </nav>
+            <hr>
+        </header>
+        <main>
+            <section id="projects">
+                <h2>Intonational - Microservices Backend with FastAPI</h2>
+                <a href="https://github.com/qtran1018/intonational" alt="GitHub Link">
+                    <img class="project-link" src="/assets/images/icons/github-mark-white.svg"/>
+                    🔗
+                </a>
+                <p>Intonational is a work-in-progress microservices backend built with FastAPI, designed to provide weather forecasts, currency exchange rates, and travel advisories. 
+                    The project separates static data services (historical weather, geocodes, travel advisories) and dynamic data services (weather forecasts, FX rates) to provide clean, modular APIs. 
+                    External data sources include <a href="https://open-meteo.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Open Meteo</a> for weather data, 
+                    <a href="https://exchangerate.host/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">ExchangeRate Host</a> for currency rates, 
+                    and scraped travel advisories from the <a href="https://travel.state.gov/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">US State Department</a>. 
+                    Playwright is used in combination with BeautifulSoup for scraping these advisories. Redis caching improves performance, and MongoDB stores structured and unstructured data.
+                </p>
+                <p>Currently under active development. Features and integrations are continuously being added, refined, and tested locally.</p>
+                <p>The development workflow includes:
+                </p>
+                <ol>
+                    <li>💡 Define microservice responsibilities and data flows.</li>
+                    <li>🛠️ Choose the tech stack: Python, FastAPI, Redis, MongoDB, Playwright + BeautifulSoup for scraping.</li>
+                    <li>🧑‍💻 Implement services, REST endpoints, and data models.</li>
+                    <li>🔧 Test and debug services locally, ensure caching and data aggregation work correctly.</li>
+                    <li>✨ Iteratively refine APIs, scraping, and aggregation logic.</li>
+                </ol>
+                <hr>
+                <div class="key-features">
+                    <h2>Key Features</h2>
+                    <ul class="project-bullets">
+                        <li><b>✅ Microservices architecture</b></li>
+                        <li class="list-item-description">Services are separated into static and dynamic data APIs, improving modularity and scalability.</li>
+                        <li><b>📈 Data aggregation & caching</b></li>
+                        <li class="list-item-description">Redis caches FX rates and weather forecasts to minimize repeated API calls and improve response time.</li>
+                        <li><b>🌐 REST APIs with FastAPI</b></li>
+                        <li class="list-item-description">Endpoints handle data retrieval, aggregation, and caching in a modular backend architecture.</li>
+                        <li><b>🗄️ Multi-database integration</b></li>
+                        <li class="list-item-description">MongoDB stores both structured and unstructured data for travel advisories and geocodes.</li>
+                        <li><b>🧪 Web scraping</b></li>
+                        <li class="list-item-description">Playwright in combination with BeautifulSoup is used to scrape travel advisories from the US State Department.</li>
+                        <li><b>⚡ Performance optimization</b></li>
+                        <li class="list-item-description">Redis TTL and key strategies reduce unnecessary API calls; asynchronous FastAPI endpoints improve throughput.</li>
+                        <li><b>📊 Aggregated historical & forecast data</b></li>
+                        <li class="list-item-description">Provides combined views of weather and FX rates for analysis or travel-related applications.</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="tech-stack">
+                    <h3>Backend</h3>
+                    <ul class="project-bullets">
+                        <li>Python</li>
+                        <li>FastAPI</li>
+                        <li>Redis for dynamic-data caching</li>
+                        <li>MongoDB - semi-static-data storage</li>
+                        <li>Playwright + BeautifulSoup - data scraping</li>
+                        <li>Pydantic for data validation</li>
+                    </ul>
+                    <h3>Other</h3>
+                    <ul class="project-bullets">
+                        <li>Docker & Docker Compose for local development</li>
+                        <li>CI/CD with GitHub Actions (planned)</li>
+                        <li>Postman for API testing</li>
+                        <li>Visual Studio Code</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright © 2025 ? | All rights probably reserved</p>
+            <a id="email-link" href="mailto:qtran1018@gmail.com">Send me an email</a>
+        </footer>
+    </body>
+</html>
