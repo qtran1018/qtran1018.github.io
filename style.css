@@ -115,6 +115,23 @@ figure, figcaption {
   margin-top: 0;
 }
 
+.training-data {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.training-data th,
+.training-data td {
+    border: 1px solid #eaedf3;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+}
+
+.training-data th {
+    background-color: #2e3650;
+}
+
 #email-link {
     color: #ea4d2d;
     padding-bottom: 10px;

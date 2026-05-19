@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/assets/images/icons/project-svg/cards.svg" type="image/x-icon" />
+        <title>TCG Card Scanner | Quang Tran</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <h2><a href="/">Quang Tran</a></h2>
+                <div class="nav-links">
+                <a href="/assets/documents/Quang Tran Resume.pdf" target="_blank"><img src="/assets/images/icons/resume.svg" alt="Resume"></a>
+                <a href="https://github.com/qtran1018" target="_blank"><img src="/assets/images/icons/github-mark-white.svg" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/qtran1018/" target="_blank"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn"></a>
+                </div>
+            </nav>
+            <hr>
+        </header>
+        <main>
+            <section id="projects">
+                <h2>TCG Card Scanner</h2>
+                <a href="https://github.com/qtran1018/TCG" alt="GitHub Link" target="_blank">
+                    <img class="project-link" src="/assets/images/icons/github-mark-white.svg"/>
+                    🔗
+                </a>
+                <p>A mobile app that identifies trading cards by pointing a camera at them and instantly retrieves pricing and recent sales data.</p>
+                <p>The app runs a multi-model AI pipeline entirely from a phone photo: YOLO detects individual card boundaries in the frame, ML Kit reads the card text, and a fine-tuned CLIP model matches the card visually — all three results are fused together to produce the most accurate identification. Prices, recent sales, and trend graphs are scraped live from PriceCharting and cached in Redis. The app supports both English and Japanese cards.</p>
+                <p>The project grew from a simple single-card OCR scanner into a full multi-card batch pipeline with a streaming backend, custom-trained object detection, and a fine-tuned visual embedding model — each version addressing the limitations of the last.</p>
+                <hr>
+                <div class="key-features">
+                    <h2>Key Features</h2>
+                    <ul class="project-bullets">
+                        <li><b>📷 Multi-card batch scanning</b></li>
+                        <li class="list-item-description">Capture an entire spread of cards in one photo. The app detects each card's bounding box, crops and re-OCRs each one independently, then streams results back to the UI card-by-card as they complete — no waiting for the whole batch to finish.</li>
+                        <li><b>🤖 Three-mode recognition engine</b></li>
+                        <li class="list-item-description">OCR mode reads card text (name, number, set total) and searches the database. Image AI mode converts the card crop into a 512-dimensional visual embedding and finds the nearest match across 20,187 stored card vectors. Combined mode runs both in parallel and merges the ranked results using Reciprocal Rank Fusion, with OCR weighted 2× over image signal.</li>
+                        <li><b>💰 Live pricing from PriceCharting</b></li>
+                        <li class="list-item-description">Ungraded, PSA 7, PSA 8, PSA 9, and PSA 10 prices are scraped per card and cached in Redis for 24 hours. Recent sales rows include direct links to the original eBay or TCGPlayer listings. Price trends are rendered as a chart pulled from PriceCharting's embedded JavaScript data.</li>
+                        <li><b>🗂️ Batch price lookup</b></li>
+                        <li class="list-item-description">After scanning, select multiple cards and fetch market prices for all of them at once. Each card shows its market price and most recent sale entry on a single screen.</li>
+                        <li><b>🇯🇵 Japanese card support</b></li>
+                        <li class="list-item-description">ML Kit Japanese OCR reads katakana text, which is translated to English via a 1,028-entry kana-to-English dictionary. Japanese card images are resolved from a scraped index of 27,255 cards from TCGCollector.com. Pricing uses PriceCharting's Japanese set URL scheme.</li>
+                        <li><b>🔍 Fuzzy name matching</b></li>
+                        <li class="list-item-description">OCR misreads like "Lotacl" or "Sulcune" are recovered by a PostgreSQL trigram similarity fallback (pg_trgm) when exact name search returns nothing. Set disambiguation uses a printed-total lookup across 172 sets to distinguish cards that share a name and number across different releases.</li>
+                        <li><b>⚡ Unified streaming backend</b></li>
+                        <li class="list-item-description">A single POST /scan endpoint batches all CLIP embeddings in one forward pass, runs all pgvector and OCR searches in parallel via asyncio, and streams results as NDJSON. The mobile client parses the stream incrementally over XHR, updating the UI as each card resolves.</li>
+                    </ul>
+                </div>
+                <hr>
+                <h2>AI Models & Training</h2>
+                <div class="key-features">
+                    <ul class="project-bullets">
+                        <li><b>YOLO11n — Card Detection (fine-tuned)</b></li>
+                        <li class="list-item-description">
+                            Fine-tuned from COCO pretrained weights to detect card boundaries in a phone photo. Replaced an earlier OpenCV contour approach that failed on holofoil surfaces and overlapping cards.
+                            <br><br>
+                            Dataset assembled from three sources: 221 own photos (Roboflow, auto-labeled), 576 images from the TCG Detector Roboflow dataset, and 891 images from Aaron's Raw Photos dataset — 1,688 images total after format conversion and merging.
+                            <br><br>
+                            <b>Training config:</b> 50 epochs · imgsz 640 · batch 16 · AMD Ryzen 5 5600X (CPU only) · 3.68 hours
+                            <br><br>
+                            <b>Final results (best.pt):</b>
+                            <table class="training-data">
+                                <tr><th>Metric</th><th>Value</th><th>Target</th></tr>
+                                <tr><td>mAP50</td><td>0.992</td><td>&gt; 0.85</td></tr>
+                                <tr><td>mAP50-95</td><td>0.904</td><td>&gt; 0.70</td></tr>
+                                <tr><td>Precision</td><td>0.977</td><td>—</td></tr>
+                                <tr><td>Recall</td><td>0.985</td><td>—</td></tr>
+                                <tr><td>Inference speed</td><td>33.9ms/image (CPU)</td><td>—</td></tr>
+                            </table>
+                        </li>
+                        <li><b>CLIP ViT-B/32 — Visual Embedding (fine-tuned)</b></li>
+                        <li class="list-item-description">
+                            CLIP converts a card crop into a 512-dimensional vector. pgvector finds the nearest match across all 20,187 embedded cards using an IVFFlat index. The base CLIP model was pre-trained on general internet images — it understands visual categories but not specific card identity, confusing visually similar Pokémon.
+                            <br><br>
+                            Fine-tuning closed this domain gap by training on (clean official card art, simulated phone photo) pairs using InfoNCE contrastive loss. Augmentation pipeline: paste card onto random background texture → perspective warp → color jitter → Gaussian blur → JPEG compression → art-region crop (y=12%–52%). Only the visual encoder was fine-tuned (87.8M parameters); the text encoder was frozen.
+                            <br><br>
+                            <b>Training config:</b> 10 epochs · 82,964 pairs/epoch (20,741 cards × 4 augmentations) · AdamW lr=1e-5 · cosine LR schedule · RTX 3080 · ~13 hours total
+                            <br><br>
+                            <b>Epoch log:</b>
+                            <table class="training-data">
+                                <tr><th>Epoch</th><th>Loss</th><th>LR</th><th>Duration</th></tr>
+                                <tr><td>1</td><td>0.0255</td><td>9.76e-06</td><td>78 min</td></tr>
+                                <tr><td>2</td><td>0.0098</td><td>9.05e-06</td><td>77 min</td></tr>
+                                <tr><td>3</td><td>0.0099</td><td>7.96e-06</td><td>78 min</td></tr>
+                                <tr><td>4</td><td>0.0095</td><td>6.58e-06</td><td>78 min</td></tr>
+                                <tr><td>5</td><td>0.0088</td><td>5.05e-06</td><td>76 min</td></tr>
+                                <tr><td>6</td><td>0.0080</td><td>3.52e-06</td><td>77 min</td></tr>
+                                <tr><td>7 ★ best</td><td>0.0077</td><td>2.14e-06</td><td>77 min</td></tr>
+                                <tr><td>8</td><td>0.0081</td><td>1.05e-06</td><td>77 min</td></tr>
+                                <tr><td>9</td><td>0.0083</td><td>3.42e-07</td><td>79 min</td></tr>
+                                <tr><td>10</td><td>0.0081</td><td>1.00e-07</td><td>82 min</td></tr>
+                            </table>
+                            <br>
+                            Best weights saved at epoch 7 (loss 0.0077). Re-embedded all 20,187 cards with fine-tuned weights; IVFFlat index rebuilt. 50 cards unembeddable due to CDN 404s (McDonald's Collection promos).
+                        </li>
+                        <li><b>Google ML Kit OCR</b></li>
+                        <li class="list-item-description">On-device text recognition for English and Japanese scripts. Runs entirely on the phone — no network call, no latency cost. Extracts card name, HP, card number, and set total. Misreads are recovered downstream via fuzzy matching.</li>
+                    </ul>
+                </div>
+                <hr>
+                <h2>Tech Stack</h2>
+                <div class="tech-stack">
+                    <h3>Mobile (Frontend)</h3>
+                    <ul class="project-bullets">
+                        <li>TypeScript</li>
+                        <li>React Native</li>
+                        <li>Expo</li>
+                        <li>Zustand – global scan state</li>
+                        <li>react-native-chart-kit – price trend graphs</li>
+                        <li>Google ML Kit – on-device OCR</li>
+                    </ul>
+                    <h3>Backend</h3>
+                    <ul class="project-bullets">
+                        <li>Python</li>
+                        <li>FastAPI</li>
+                        <li>open-clip-torch – CLIP ViT-B/32 inference and fine-tuning</li>
+                        <li>Ultralytics – YOLO11n inference</li>
+                        <li>Playwright – TCGCollector.com scraper (Japanese card images)</li>
+                        <li>BeautifulSoup – PriceCharting scraper</li>
+                    </ul>
+                    <h3>Database & Caching</h3>
+                    <ul class="project-bullets">
+                        <li>PostgreSQL with pgvector – card metadata and 512-dim embeddings, IVFFlat index</li>
+                        <li>Redis – price cache (24h TTL), search cache (1h TTL)</li>
+                    </ul>
+                    <h3>Infrastructure</h3>
+                    <ul class="project-bullets">
+                        <li>Docker / Docker Compose – local dev environment</li>
+                        <li>pokemontcg.io API – card metadata and images</li>
+                        <li>PriceCharting – pricing, sales history, trend data (scraped)</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="figures">
+                    <h3 class="figures-title">Figures</h3>
+                    <div class="project-images">
+                        <!-- Images to be added -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright © 2025 ? | All rights probably reserved</p>
+            <a id="email-link" href="mailto:qtran1018@gmail.com">Send me an email</a>
+        </footer>
+    </body>
+</html>
