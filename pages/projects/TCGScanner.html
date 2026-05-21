@@ -25,57 +25,142 @@
                     🔗
                 </a>
                 <p>A mobile app that identifies trading cards by pointing a camera at them and instantly retrieves pricing and recent sales data.</p>
-                <p>The app runs a multi-model AI pipeline entirely from a phone photo: YOLO detects individual card boundaries in the frame, ML Kit reads the card text, and a fine-tuned CLIP model matches the card visually — all three results are fused together to produce the most accurate identification. Prices, recent sales, and trend graphs are scraped live from PriceCharting and cached in Redis. The app supports both English and Japanese cards.</p>
-                <p>The project grew from a simple single-card OCR scanner into a full multi-card batch pipeline with a streaming backend, custom-trained object detection, and a fine-tuned visual embedding model — each version addressing the limitations of the last.</p>
+                <p>The app runs a multi-model AI pipeline from a single phone photo: YOLO detects individual card boundaries in the frame, ML Kit reads the card text, and a fine-tuned CLIP model matches the card visually — all three results fused together to produce the most accurate identification. Prices, recent sales, and trend graphs are scraped live from PriceCharting and cached in Redis. The app supports both English and Japanese cards, identifying the language automatically per card in a mixed scan.</p>
+                <p>The project grew iteratively across 15 versions — from a single-card OCR scanner to a multi-model streaming pipeline with custom-trained object detection and a fine-tuned visual embedding model. Each version was a direct response to a concrete failure in the previous one.</p>
                 <hr>
+
                 <div class="key-features">
                     <h2>Key Features</h2>
                     <ul class="project-bullets">
                         <li><b>📷 Multi-card batch scanning</b></li>
-                        <li class="list-item-description">Capture an entire spread of cards in one photo. The app detects each card's bounding box, crops and re-OCRs each one independently, then streams results back to the UI card-by-card as they complete — no waiting for the whole batch to finish.</li>
+                        <li class="list-item-description">Capture an entire spread of cards in one photo. YOLO detects each card's bounding box, each crop is re-OCR'd and confidence-gated independently, then results stream back to the UI card-by-card as they complete — no waiting for the whole batch.</li>
+
                         <li><b>🤖 Three-mode recognition engine</b></li>
-                        <li class="list-item-description">OCR mode reads card text (name, number, set total) and searches the database. Image AI mode converts the card crop into a 512-dimensional visual embedding and finds the nearest match across 20,187 stored card vectors. Combined mode runs both in parallel and merges the ranked results using Reciprocal Rank Fusion, with OCR weighted 2× over image signal.</li>
+                        <li class="list-item-description">OCR mode reads card text (name, number, set total) and searches the database. Image AI mode converts the card crop into a 512-dimensional visual embedding and finds the nearest match across 47,442 stored card vectors (20,187 EN + 27,255 JP). Combined mode runs both in parallel and merges ranked results using Reciprocal Rank Fusion — OCR weighted 2× over image signal, with weak image results gated out when OCR already found a confident answer.</li>
+
+                        <li><b>🇯🇵 Japanese card support — auto detected</b></li>
+                        <li class="list-item-description">All OCR runs with ML Kit's Japanese script, which returns both Latin and kana in one pass. A kana regex on each crop's text determines its language independently — a single photo of mixed EN and JP cards is handled correctly without any user toggle. Japanese card names are translated via a 1,028-entry kana-to-English dictionary, then searched against 27,255 JP cards stored as independent first-class database records scraped from TCGCollector.com (all eras, 1996–present).</li>
+
+                        <li><b>🃏 Trainer, Supporter, Item, and Tool card support</b></li>
+                        <li class="list-item-description">Non-Pokémon cards are identified by locating the standalone type keyword on the card (e.g. "Supporter"), then extracting the card name from the lines above it. Parenthetical subtitles are stripped ("Professor's Research (Professor Magnolia)" → "Professor's Research"). The mobile confidence scorer fast-passes any crop with a recognisable type keyword before the HP/keyword scoring path runs.</li>
+
                         <li><b>💰 Live pricing from PriceCharting</b></li>
-                        <li class="list-item-description">Ungraded, PSA 7, PSA 8, PSA 9, and PSA 10 prices are scraped per card and cached in Redis for 24 hours. Recent sales rows include direct links to the original eBay or TCGPlayer listings. Price trends are rendered as a chart pulled from PriceCharting's embedded JavaScript data.</li>
+                        <li class="list-item-description">Ungraded, PSA 7, PSA 8, PSA 9, and PSA 10 prices are scraped per card and cached in Redis for 24 hours. Recent sales rows include direct links to the original eBay or TCGPlayer listings. Price trends are rendered as a chart from PriceCharting's embedded JavaScript data.</li>
+
                         <li><b>🗂️ Batch price lookup</b></li>
-                        <li class="list-item-description">After scanning, select multiple cards and fetch market prices for all of them at once. Each card shows its market price and most recent sale entry on a single screen.</li>
-                        <li><b>🇯🇵 Japanese card support</b></li>
-                        <li class="list-item-description">ML Kit Japanese OCR reads katakana text, which is translated to English via a 1,028-entry kana-to-English dictionary. Japanese card images are resolved from a scraped index of 27,255 cards from TCGCollector.com. Pricing uses PriceCharting's Japanese set URL scheme.</li>
-                        <li><b>🔍 Fuzzy name matching</b></li>
-                        <li class="list-item-description">OCR misreads like "Lotacl" or "Sulcune" are recovered by a PostgreSQL trigram similarity fallback (pg_trgm) when exact name search returns nothing. Set disambiguation uses a printed-total lookup across 172 sets to distinguish cards that share a name and number across different releases.</li>
+                        <li class="list-item-description">After scanning, select multiple cards and fetch market prices for all of them at once. Each card shows its market price and most recent sale on a single screen. Mixed EN and JP batches are priced correctly — each card uses its own language to build the PriceCharting URL.</li>
+
+                        <li><b>💱 USD / JPY currency toggle</b></li>
+                        <li class="list-item-description">A pill toggle on both the individual card and batch price screens instantly converts all displayed prices — market price, graded tiers, recent sales, and the trend chart — between USD and JPY. Designed for scanning cards at Japanese shops: switch to JPY to compare the app price directly against the sticker price. The exchange rate is fetched from the Frankfurter API, cached in Redis for 24 hours, and shown inline as <code>1 USD = ¥X</code>. JPY values are displayed as whole numbers with locale-formatted commas.</li>
+
+                        <li><b>🔍 Fuzzy name matching and set disambiguation</b></li>
+                        <li class="list-item-description">OCR misreads like "Lotacl" or "Sulcune" are recovered by a PostgreSQL trigram similarity fallback (pg_trgm) when exact name search returns nothing. Set disambiguation uses a printed-total lookup across 172 sets to distinguish cards that share a name and number across different releases — e.g. Gastly #36 appears in both Fossil and Base Set 2.</li>
+
                         <li><b>⚡ Unified streaming backend</b></li>
                         <li class="list-item-description">A single POST /scan endpoint batches all CLIP embeddings in one forward pass, runs all pgvector and OCR searches in parallel via asyncio, and streams results as NDJSON. The mobile client parses the stream incrementally over XHR, updating the UI as each card resolves.</li>
                     </ul>
                 </div>
                 <hr>
+
+                <h2>Architecture Evolution</h2>
+                <p>Each version replaced something that demonstrably failed, not something that was merely inconvenient. The five biggest pivots:</p>
+
+                <div class="key-features">
+                    <ul class="project-bullets">
+
+                        <li><b>Card detection: OCR clustering → OpenCV → YOLO11n</b></li>
+                        <li class="list-item-description">
+                            The first multi-card approach grouped OCR text blocks by spatial proximity to infer where cards were. It failed completely when cards had no visible text (holofoil, face-down, or rotated) and produced garbage bounding boxes when cards touched or overlapped.
+                            <br><br>
+                            OpenCV adaptive-threshold contour detection was added as the first real detector. It worked on plain card-on-desk photos but collapsed on reflective holofoil surfaces — the specular highlights broke contour connectivity — and on colorful desk mats where the card edges couldn't be isolated.
+                            <br><br>
+                            YOLO11n replaced OpenCV entirely. Fine-tuned on a dataset assembled from three sources (own photos, two Roboflow community datasets, 1,688 images total after format conversion and merging), the model learns the physical card appearance regardless of surface finish. The OCR fallback remains in code if the model file is absent, but has not been needed since deployment.
+                        </li>
+
+                        <li><b>YOLO retraining with synthetic data (v2)</b></li>
+                        <li class="list-item-description">
+                            After the first YOLO model (v1), real training data was cleaned — 27 set-symbol images mislabeled as cards, 103 orphaned label files, and all PSA slab photos were removed. A synthetic generation pipeline was built to produce composite images: card art downloaded from the database is pasted onto background photos (desk textures, glass display cases) at randomised positions, scales, and rotations, with bounding boxes recorded automatically. This requires no manual labeling.
+                            <br><br>
+                            Glass display case scenes were included at a 13% rate (matching the 2-in-15 ratio of glass backgrounds in the real photo set) with a per-card blue-green tint to simulate glass colour cast. Card sampling was stratified — 45% EN Pokémon, 40% JP, 15% EN Trainer/Item — to match realistic scan conditions.
+                            <br><br>
+                            The v2 model was fine-tuned from v1 weights (not from base COCO weights) to preserve real-photo learning and avoid catastrophic forgetting of the original dataset.
+                            <br><br>
+                            <b>Dataset:</b> 1,225 real (cleaned) + 1,700 synthetic train images · 304 real + 300 synthetic val
+                            <br>
+                            <b>Training:</b> 30 epochs · RTX 3080 · ~1.5 hours
+                            <br><br>
+                            <table class="training-data">
+                                <tr><th>Metric</th><th>v1 (CPU, 50 epochs)</th><th>v2 (GPU, 30 epochs)</th></tr>
+                                <tr><td>mAP50</td><td>0.992</td><td>0.993</td></tr>
+                                <tr><td>mAP50-95</td><td>0.904</td><td><b>0.964 (+6.6%)</b></td></tr>
+                                <tr><td>Precision</td><td>0.977</td><td>0.977</td></tr>
+                                <tr><td>Recall</td><td>0.985</td><td>0.980</td></tr>
+                            </table>
+                            <br>
+                            mAP50-95 measures bounding box quality at strict IoU thresholds (50–95%), not just whether the card was found. The +6.6% improvement means tighter, more precise crops — directly improving the quality of the card art region fed into CLIP and OCR downstream.
+                        </li>
+
+                        <li><b>Image embedding: EfficientNet → CLIP base → CLIP fine-tuned</b></li>
+                        <li class="list-item-description">
+                            The first image-based identification attempt used EfficientNet-B0 with PCA dimensionality reduction to 256 dimensions. Similarity scores ranged 0.45–0.58 — practically a random ranking. EfficientNet was designed for image classification, not cross-domain similarity between phone photos and card art.
+                            <br><br>
+                            Switching to CLIP ViT-B/32 raised scores to 0.78–0.86 for visually distinctive cards. CLIP is trained contrastively on image-text pairs, giving it a much stronger sense of visual similarity. However, it was trained on general internet images — it understands visual categories ("small round blue creature") but not specific card identity, reliably confusing visually similar Pokémon like Lotad and Seedot.
+                            <br><br>
+                            The root cause is a domain gap: CLIP has never seen a phone photo of a physical card next to a clean digital scan of the same card. Fine-tuning closed this gap by training on synthetic pairs — each pair consists of a clean official card art crop and an augmented simulation of what that card looks like photographed on a desk (perspective warp, colour jitter, Gaussian blur, JPEG compression artefacts, random background texture). Only the visual encoder was fine-tuned; the text encoder was frozen.
+                        </li>
+
+                        <li><b>Japanese card support: number-mapping overlay → first-class DB records</b></li>
+                        <li class="list-item-description">
+                            The initial JP implementation had no independent JP card records. When a JP card was identified, the system tried to look up its image by mapping the JP card number to a TCGCollector entry via the EN card's set and name. This was fundamentally broken: EN and JP numbering systems are completely independent. EN sets combine and alphabetically reorder cards from multiple JP sets — EN "BREAKthrough" Doduo #115 and JP "Collection Y" Doduo #46 are the same card, but there is no mathematical relationship between those numbers.
+                            <br><br>
+                            The result was that all JP swap candidates for a given Pokémon name returned the same wrong image — whichever JP card happened to be newest in the scrape order for that name (e.g. always "Shiny Doduo" for all Doduo variants).
+                            <br><br>
+                            The fix was architectural: 27,255 JP cards scraped from TCGCollector.com were loaded as independent <code>language='ja'</code> rows in the cards table. Each record carries its own image URL, card number (from TCGCollector, not derived from EN), and set name. JP OCR search and pgvector image search both filter by language — EN and JP pipelines are fully independent and never share card IDs.
+                        </li>
+
+                        <li><b>Backend API: three-call sequential pipeline → unified streaming endpoint</b></li>
+                        <li class="list-item-description">
+                            The original multi-card flow made three sequential network calls: POST /detect (YOLO bounding boxes) → POST /search/batch (OCR text search for all crops) → POST /match-image (CLIP embedding search for all crops). Each call waited for the previous one to finish, and the UI only updated after all three completed.
+                            <br><br>
+                            The unified POST /scan endpoint collapses all three into a single call. CLIP embeddings for all crops are computed in one batched forward pass. pgvector searches and OCR text searches for all crops run concurrently via asyncio.gather. Results are emitted as NDJSON — one JSON object per crop — as soon as each crop resolves. The mobile client parses the stream incrementally over XHR, so the first card appears in the UI while the last crop is still being processed.
+                        </li>
+
+                    </ul>
+                </div>
+                <hr>
+
                 <h2>AI Models & Training</h2>
                 <div class="key-features">
                     <ul class="project-bullets">
-                        <li><b>YOLO11n — Card Detection (fine-tuned)</b></li>
+                        <li><b>YOLO11n — Card Detection (fine-tuned, v2)</b></li>
                         <li class="list-item-description">
-                            Fine-tuned from COCO pretrained weights to detect card boundaries in a phone photo. Replaced an earlier OpenCV contour approach that failed on holofoil surfaces and overlapping cards.
+                            Fine-tuned from COCO pretrained weights on a mixed real-and-synthetic dataset. Detects card boundaries in phone photos regardless of surface finish, overlap, or background complexity.
                             <br><br>
-                            Dataset assembled from three sources: 221 own photos (Roboflow, auto-labeled), 576 images from the TCG Detector Roboflow dataset, and 891 images from Aaron's Raw Photos dataset — 1,688 images total after format conversion and merging.
+                            <b>v1 dataset:</b> 1,688 images from three sources (own photos, TCG Detector Roboflow dataset, Aaron's Raw Photos dataset) — converted from mixed COCO/OBB/polygon formats to single-class YOLO bbox format via custom merge scripts.
                             <br><br>
-                            <b>Training config:</b> 50 epochs · imgsz 640 · batch 16 · AMD Ryzen 5 5600X (CPU only) · 3.68 hours
+                            <b>v2 dataset:</b> v1 dataset cleaned (set-symbol images, PSA slab photos, and orphaned label files removed) and augmented with 2,000 synthetically generated composite images.
                             <br><br>
-                            <b>Final results (best.pt):</b>
+                            <b>v1 training:</b> 50 epochs · imgsz 640 · batch 16 · AMD Ryzen 5 5600X (CPU only) · 3.68 hours
+                            <br>
+                            <b>v2 training:</b> 30 epochs · fine-tuned from v1 weights · RTX 3080 · ~1.5 hours
+                            <br><br>
                             <table class="training-data">
-                                <tr><th>Metric</th><th>Value</th><th>Target</th></tr>
-                                <tr><td>mAP50</td><td>0.992</td><td>&gt; 0.85</td></tr>
-                                <tr><td>mAP50-95</td><td>0.904</td><td>&gt; 0.70</td></tr>
-                                <tr><td>Precision</td><td>0.977</td><td>—</td></tr>
-                                <tr><td>Recall</td><td>0.985</td><td>—</td></tr>
-                                <tr><td>Inference speed</td><td>33.9ms/image (CPU)</td><td>—</td></tr>
+                                <tr><th>Metric</th><th>v1</th><th>v2</th><th>Target</th></tr>
+                                <tr><td>mAP50</td><td>0.992</td><td>0.993</td><td>&gt; 0.85</td></tr>
+                                <tr><td>mAP50-95</td><td>0.904</td><td><b>0.964</b></td><td>&gt; 0.70</td></tr>
+                                <tr><td>Precision</td><td>0.977</td><td>0.977</td><td>—</td></tr>
+                                <tr><td>Recall</td><td>0.985</td><td>0.980</td><td>—</td></tr>
+                                <tr><td>Inference (CPU)</td><td>33.9ms/img</td><td>—</td><td>—</td></tr>
                             </table>
                         </li>
+
                         <li><b>CLIP ViT-B/32 — Visual Embedding (fine-tuned)</b></li>
                         <li class="list-item-description">
-                            CLIP converts a card crop into a 512-dimensional vector. pgvector finds the nearest match across all 20,187 embedded cards using an IVFFlat index. The base CLIP model was pre-trained on general internet images — it understands visual categories but not specific card identity, confusing visually similar Pokémon.
+                            Converts a card crop into a 512-dimensional L2-normalised vector. pgvector finds the nearest match across all 47,442 embedded cards (20,187 EN + 27,255 JP) using an IVFFlat index (lists=100). An art-region crop (y=12%–52%) focuses the embedding on the Pokémon illustration rather than card border, text, or HP bar.
                             <br><br>
-                            Fine-tuning closed this domain gap by training on (clean official card art, simulated phone photo) pairs using InfoNCE contrastive loss. Augmentation pipeline: paste card onto random background texture → perspective warp → color jitter → Gaussian blur → JPEG compression → art-region crop (y=12%–52%). Only the visual encoder was fine-tuned (87.8M parameters); the text encoder was frozen.
+                            Fine-tuned on synthetic (clean card art, simulated phone photo) pairs using InfoNCE contrastive loss. Augmentation pipeline: paste card onto random background texture → perspective warp → colour jitter → Gaussian blur → JPEG compression → art-region crop. Only the visual encoder was fine-tuned (87.8M parameters); the text encoder was frozen.
                             <br><br>
-                            <b>Training config:</b> 10 epochs · 82,964 pairs/epoch (20,741 cards × 4 augmentations) · AdamW lr=1e-5 · cosine LR schedule · RTX 3080 · ~13 hours total
+                            <b>Training config:</b> 10 epochs · 82,964 pairs/epoch (20,741 cards × 4 augmentations) · AdamW lr=1e-5 · cosine LR schedule · temperature=0.07 · RTX 3080 · ~13 hours total
                             <br><br>
                             <b>Epoch log:</b>
                             <table class="training-data">
@@ -92,43 +177,48 @@
                                 <tr><td>10</td><td>0.0081</td><td>1.00e-07</td><td>82 min</td></tr>
                             </table>
                             <br>
-                            Best weights saved at epoch 7 (loss 0.0077). Re-embedded all 20,187 cards with fine-tuned weights; IVFFlat index rebuilt. 50 cards unembeddable due to CDN 404s (McDonald's Collection promos).
+                            Best checkpoint saved at epoch 7 (loss 0.0077). All 47,442 cards re-embedded with fine-tuned weights; IVFFlat index rebuilt. 50 EN cards unembeddable due to CDN 404s (McDonald's Collection promos).
                         </li>
+
                         <li><b>Google ML Kit OCR</b></li>
-                        <li class="list-item-description">On-device text recognition for English and Japanese scripts. Runs entirely on the phone — no network call, no latency cost. Extracts card name, HP, card number, and set total. Misreads are recovered downstream via fuzzy matching.</li>
+                        <li class="list-item-description">
+                            On-device text recognition running entirely on the phone — no network call, no added latency. Configured with Japanese script recognition, which returns both Latin and kana characters in a single pass. A kana regex on each crop's OCR output determines per-crop language automatically, allowing a single photo of mixed EN and JP cards to be scanned without user input.
+                            <br><br>
+                            A second OCR pass is run on just the top 18% of each card crop (the name region), isolating the card name from attack text and flavour text that would otherwise pollute the name extraction. Card numbers are extracted separately from the bottom 8% of each crop, split into left and right corners to distinguish card number from set code.
+                        </li>
                     </ul>
                 </div>
                 <hr>
+
                 <h2>Tech Stack</h2>
                 <div class="tech-stack">
                     <h3>Mobile (Frontend)</h3>
                     <ul class="project-bullets">
                         <li>TypeScript</li>
-                        <li>React Native</li>
-                        <li>Expo</li>
-                        <li>Zustand – global scan state</li>
-                        <li>react-native-chart-kit – price trend graphs</li>
-                        <li>Google ML Kit – on-device OCR</li>
+                        <li>React Native / Expo</li>
+                        <li>Zustand — global scan state</li>
+                        <li>Google ML Kit — on-device OCR (Japanese + Latin scripts)</li>
+                        <li>react-native-chart-kit — price trend graphs</li>
                     </ul>
                     <h3>Backend</h3>
                     <ul class="project-bullets">
-                        <li>Python</li>
-                        <li>FastAPI</li>
-                        <li>open-clip-torch – CLIP ViT-B/32 inference and fine-tuning</li>
-                        <li>Ultralytics – YOLO11n inference</li>
-                        <li>Playwright – TCGCollector.com scraper (Japanese card images)</li>
-                        <li>BeautifulSoup – PriceCharting scraper</li>
+                        <li>Python / FastAPI</li>
+                        <li>open-clip-torch — CLIP ViT-B/32 inference and fine-tuning</li>
+                        <li>Ultralytics — YOLO11n training and inference</li>
+                        <li>Playwright — TCGCollector.com scraper (JP card data)</li>
+                        <li>BeautifulSoup / httpx — PriceCharting scraper</li>
                     </ul>
                     <h3>Database & Caching</h3>
                     <ul class="project-bullets">
-                        <li>PostgreSQL with pgvector – card metadata and 512-dim embeddings, IVFFlat index</li>
-                        <li>Redis – price cache (24h TTL), search cache (1h TTL)</li>
+                        <li>PostgreSQL with pgvector — card metadata and 512-dim CLIP embeddings, IVFFlat index (lists=100)</li>
+                        <li>Redis — price cache (24h TTL), search result cache (1h TTL), exchange rate cache (24h TTL)</li>
                     </ul>
                     <h3>Infrastructure</h3>
                     <ul class="project-bullets">
-                        <li>Docker / Docker Compose – local dev environment</li>
-                        <li>pokemontcg.io API – card metadata and images</li>
-                        <li>PriceCharting – pricing, sales history, trend data (scraped)</li>
+                        <li>Docker / Docker Compose — local dev environment (backend, postgres, redis, worker)</li>
+                        <li>pokemontcg.io API — EN card metadata and images</li>
+                        <li>TCGCollector.com — JP card data (27,255 cards scraped, all eras 1996–present)</li>
+                        <li>PriceCharting — pricing, sales history, trend data (scraped)</li>
                     </ul>
                 </div>
                 <hr>
