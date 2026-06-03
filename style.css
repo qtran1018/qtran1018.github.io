@@ -24,6 +24,24 @@ nav {
     height: 30px;
 }
 
+.live-app {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #ea4d2d;
+    border-radius: 999px;
+    color: #ea4d2d;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.live-app:hover {
+    background-color: #ea4d2d;
+    color: #fff;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
