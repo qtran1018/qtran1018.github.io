@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/style.css">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="A mobile trading-card scanner using a fine-tuned YOLO detector and CLIP visual embeddings to identify and price Pokemon cards in real time." />
+        <meta property="og:title" content="TCG Card Scanner | Quang Tran" />
+        <meta property="og:description" content="A mobile trading-card scanner using a fine-tuned YOLO detector and CLIP visual embeddings to identify and price Pokemon cards in real time." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://qtran1018.github.io/assets/images/icons/apple-touch-icon-me.png" />
+        <meta name="twitter:card" content="summary" />
+        <link rel="stylesheet" href="/v2/style.css">
         <link rel="icon" href="/assets/images/icons/project-svg/cards.svg" type="image/x-icon" />
         <title>TCG Card Scanner | Quang Tran</title>
     </head>
     <body>
         <header>
             <nav>
-                <h2><a href="/">Quang Tran</a><a href="/v2/" style="display:inline-block;margin-left:0.75rem;padding:0.2rem 0.6rem;border:1px dashed #ea4d2d;border-radius:999px;color:#ea4d2d;font-size:0.75rem;font-weight:600;text-decoration:none;" title="Preview the redesigned portfolio">View redesign ↗</a></h2>
+                <h2><a href="/v2/">Quang Tran</a><a class="toggle-link" href="/" title="Switch to the current portfolio">View current site ↗</a></h2>
                 <div class="nav-links">
                 <a href="/assets/documents/Quang Tran Resume.pdf" target="_blank"><img src="/assets/images/icons/resume.svg" alt="Resume"></a>
                 <a href="https://github.com/qtran1018" target="_blank"><img src="/assets/images/icons/github-mark-white.svg" alt="GitHub"></a>
@@ -21,18 +29,22 @@
             <section id="projects">
                 <h2>TCG Card Scanner</h2>
                 <a href="https://github.com/qtran1018/TCG" alt="GitHub Link" target="_blank">
-                    <img class="project-link" src="/assets/images/icons/github-mark-white.svg"/>
+                    <img class="project-link" src="/assets/images/icons/github-mark-white.svg" alt="" />
                     🔗
                 </a>
 
                 <p>A mobile app that identifies trading cards by pointing a camera at them and instantly retrieves pricing and recent sales data. Supports both English and Japanese Pokémon cards across all eras.</p>
-                <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 8px; flex-wrap: wrap;">
+                <div class="video-row">
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <iframe width="315" height="560" src="https://www.youtube.com/embed/mVWX6n-BG2c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/mVWX6n-BG2c" title="TCG Scanner multi-scan demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                         <p style="margin: 0; font-size: 0.9em; color: #aaa; text-align: center;">Multi-scan — photograph up to 20 cards at once</p>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <iframe width="315" height="560" src="https://www.youtube.com/embed/uBOjM4HuF94" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/uBOjM4HuF94" title="TCG Scanner live scan demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                         <p style="margin: 0; font-size: 0.9em; color: #aaa; text-align: center;">Live scan — continuous 1-by-1 identification in real time</p>
                     </div>
                 </div>
@@ -185,13 +197,13 @@
                             <br>
                             <b>Training:</b> 30 epochs · RTX 3080 · ~1.5 hours
                             <br><br>
-                            <table class="training-data">
+                            <div class="table-scroll"><table class="training-data">
                                 <tr><th>Metric</th><th>v1 (CPU, 50 epochs)</th><th>v2 (GPU, 30 epochs)</th></tr>
                                 <tr><td>mAP50</td><td>0.992</td><td>0.993</td></tr>
                                 <tr><td>mAP50-95</td><td>0.904</td><td><b>0.964 (+6.6%)</b></td></tr>
                                 <tr><td>Precision</td><td>0.977</td><td>0.977</td></tr>
                                 <tr><td>Recall</td><td>0.985</td><td>0.980</td></tr>
-                            </table>
+                            </table></div>
                             <br>
                             mAP50-95 measures bounding box quality at strict IoU thresholds (50–95%), not just whether the card was found. The +6.6% improvement means tighter, more precise crops — directly improving the quality of the card art region fed into CLIP downstream.
                         </li>
@@ -248,14 +260,14 @@
                             <br>
                             <b>v2 training:</b> 30 epochs · fine-tuned from v1 weights · RTX 3080 · ~1.5 hours
                             <br><br>
-                            <table class="training-data">
+                            <div class="table-scroll"><table class="training-data">
                                 <tr><th>Metric</th><th>v1</th><th>v2</th><th>Target</th></tr>
                                 <tr><td>mAP50</td><td>0.992</td><td>0.993</td><td>&gt; 0.85</td></tr>
                                 <tr><td>mAP50-95</td><td>0.904</td><td><b>0.964</b></td><td>&gt; 0.70</td></tr>
                                 <tr><td>Precision</td><td>0.977</td><td>0.977</td><td>—</td></tr>
                                 <tr><td>Recall</td><td>0.985</td><td>0.980</td><td>—</td></tr>
                                 <tr><td>Inference (CPU)</td><td>33.9ms/img</td><td>—</td><td>—</td></tr>
-                            </table>
+                            </table></div>
                         </li>
 
                         <li><b>CLIP ViT-B/32 — Visual Embedding (fine-tuned)</b></li>
@@ -267,7 +279,7 @@
                             <b>Training config:</b> 10 epochs · 82,964 pairs/epoch (20,741 cards × 4 augmentations) · AdamW lr=1e-5 · cosine LR schedule · temperature=0.07 · RTX 3080 · ~13 hours total
                             <br><br>
                             <b>Epoch log:</b>
-                            <table class="training-data">
+                            <div class="table-scroll"><table class="training-data">
                                 <tr><th>Epoch</th><th>Loss</th><th>LR</th><th>Duration</th></tr>
                                 <tr><td>1</td><td>0.0255</td><td>9.76e-06</td><td>78 min</td></tr>
                                 <tr><td>2</td><td>0.0098</td><td>9.05e-06</td><td>77 min</td></tr>
@@ -279,7 +291,7 @@
                                 <tr><td>8</td><td>0.0081</td><td>1.05e-06</td><td>77 min</td></tr>
                                 <tr><td>9</td><td>0.0083</td><td>3.42e-07</td><td>79 min</td></tr>
                                 <tr><td>10</td><td>0.0081</td><td>1.00e-07</td><td>82 min</td></tr>
-                            </table>
+                            </table></div>
                             <br>
                             Best checkpoint saved at epoch 7 (loss 0.0077). All 47,442 cards re-embedded with fine-tuned weights; IVFFlat index rebuilt. 50 EN cards unembeddable due to broken CDN URLs (McDonald's Collection promos — images replaced by scraping TCGCollector directly).
                         </li>
@@ -483,7 +495,7 @@
                 </div>
 
                 <h3>Notable Open-Source Dependencies</h3>
-                <table class="training-data">
+                <div class="table-scroll"><table class="training-data">
                     <tr><th>Package</th><th>License</th></tr>
                     <tr><td>FastAPI</td><td>MIT</td></tr>
                     <tr><td>SQLAlchemy</td><td>MIT</td></tr>
@@ -501,7 +513,7 @@
                     <tr><td>react-native-fast-tflite</td><td>MIT</td></tr>
                     <tr><td>@react-native-ml-kit/text-recognition</td><td>MIT</td></tr>
                     <tr><td>react-native-chart-kit</td><td>MIT</td></tr>
-                </table>
+                </table></div>
 
                 <h3>Trademarks</h3>
                 <p>Pokémon, Pokémon character names, and all related properties are trademarks of Nintendo, Game Freak, and Creatures Inc. One Piece and related properties are trademarks of Shueisha and Bandai. This project is an independent personal project and is not affiliated with, endorsed by, or sponsored by any of the above rights holders.</p>
@@ -517,7 +529,7 @@
         </main>
         <hr>
         <footer>
-            <p>Copyright © 2025 ? | All rights probably reserved</p>
+            <p>© 2026 Quang Tran</p>
             <a id="email-link" href="mailto:qtran1018@gmail.com">Send me an email</a>
         </footer>
     </body>
