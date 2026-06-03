@@ -20,7 +20,7 @@
         <main>
             <section id="projects">
                 <h2>Splitpush - Group Expense Management</h2>
-                <a href="https://splitpush.onrender.com/" target="_blank"><h3>Splitpush 🔗</h3></a>
+                <a href="https://splitpush.quangntran.com/" target="_blank"><h3>Splitpush 🔗</h3></a>
                 <a href="https://github.com/qtran1018/Splitpush/" alt="GitHub Link">
                     <img class="project-link" src="/assets/images/icons/github-mark-white.svg"/>
                     🔗
@@ -28,13 +28,15 @@
                 <p>Splitpush is a full-stack expense-sharing platform that allows groups to track shared costs, split bills, and settle balances across multiple trips or events. 
                     Users can create trips, add participants, record expenses, and automatically calculate who owes whom. 
                     The system supports both per-trip settlements and global cross-trip balancing, giving users flexible ways to manage group expenses. Mobile support included.
-                    App hosted on <a href="https://render.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Render</a>, database deployed to <a href="https://aiven.io/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Aiven</a>.
+                    App is now self-hosted on an <a href="https://www.oracle.com/cloud/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Oracle Cloud</a> VPS, with <a href="https://www.cloudflare.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Cloudflare</a> in front for DNS, TLS, and caching.
                 </p>
                 <p>Note: <s>Splitpush is hosted on free accounts. When accessing, the app may take 50 or more seconds for the host to spin up the app if it was not used recently.</s>
                     <br><br>
-                    Using a GitHub Actions cron job and <a href="https://uptimerobot.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Uptimerobot</a> to ping the app every 10 minutes, the app should now stay awake at all times.
+                    <s>Using a GitHub Actions cron job and <a href="https://uptimerobot.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Uptimerobot</a> to ping the app every 10 minutes, the app should now stay awake at all times.</s>
+                    <br><br>
+                    The app now runs continuously on the Oracle Cloud VPS, so there is no longer any cold-start delay. The earlier deployments on <a href="https://render.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Render</a> and <a href="https://aiven.io/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Aiven</a> are no longer updated, though they remain accessible.
                 </p>
-                <p>Created with the help of the AI code assistant Cursor (similar to Anthropic's Claude for coding and Microsoft's Copilot), this was my first project using AI coding assistants. 
+                <p>Created with the help of the AI code assistant Cursor, this was my first project using AI coding assistants. 
                     Although a short project, it gave me insights into how these LLM-based technologies could help accelerate basic development after I had conjured up an idea.
                     <br><br>
                     I realized there was still much of the normal process that needed consideration, but the overall flow remained similar:
@@ -91,7 +93,8 @@
                     <ul class="project-bullets">
                         <li>Docker & Docker Compose for local development and deployment</li>
                         <li>Maven for project build and dependency management</li>
-                        <li>Render / Aiven for hosting and managed Postgres</li>
+                        <li>Oracle Cloud VPS for self-hosting, with Cloudflare for DNS, TLS, and caching</li>
+                        <li>Render / Aiven (legacy deployment, no longer updated)</li>
                         <li>Cursor</li>
                         <li>Visual Studio Code</li>
                     </ul>
