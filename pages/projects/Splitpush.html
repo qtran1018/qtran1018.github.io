@@ -38,47 +38,30 @@
                     The system supports both per-trip settlements and global cross-trip balancing, giving users flexible ways to manage group expenses. Mobile support included.
                     App is now self-hosted on an <a href="https://www.oracle.com/cloud/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Oracle Cloud</a> VPS, with <a href="https://www.cloudflare.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Cloudflare</a> in front for DNS, TLS, and caching.
                 </p>
-                <p>Note: <s>Splitpush is hosted on free accounts. When accessing, the app may take 50 or more seconds for the host to spin up the app if it was not used recently.</s>
-                    <br><br>
-                    <s>Using a GitHub Actions cron job and <a href="https://uptimerobot.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Uptimerobot</a> to ping the app every 10 minutes, the app should now stay awake at all times.</s>
-                    <br><br>
-                    The app now runs continuously on the Oracle Cloud VPS, so there is no longer any cold-start delay. The earlier deployments on <a href="https://render.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Render</a> and <a href="https://aiven.io/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Aiven</a> are no longer updated, though they remain accessible.
-                </p>
-                <p>Created with the help of the AI code assistant Cursor, this was my first project using AI coding assistants. 
-                    Although a short project, it gave me insights into how these LLM-based technologies could help accelerate basic development after I had conjured up an idea.
-                    <br><br>
-                    I realized there was still much of the normal process that needed consideration, but the overall flow remained similar:
-                </p>
-                <ol>
-                    <li>💡Determine the idea. Simple enough, I can come up with some ideas.</li>
-                    <li>🛠️Choose a tech stack. I heard Java Spring Boot is popular, and PostgreSQL is widely used, so that worked well. REST APIs are still the most common and I understand them. GraphQL could work, but I'll leave that for another project.</li>
-                    <li>🧑‍💻Write some code.</li>
-                    <li>🔧QA test and fix whatever broke. While getting help from Cursor, this step felt like the most time-consuming part. Unit tests helped a lot, but there were many tiny breaks that kept popping up.</li>
-                    <li>✨Add in more small features and changes until it felt sufficiently complete.
-                        <br>In a formal project setting, this would probably involve Change Requests sent to Change Control. Unfortunately for the devs (me), the stakeholders (me) pushed for many changes, so Change Control (me) approved everything.</li>
-                </ol>
+                <p>The earlier deployments on <a href="https://render.com/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Render</a> and <a href="https://aiven.io/" target="_blank" style="color: aqua; text-decoration: underline dashed; text-underline-offset: 3px;">Aiven</a> are no longer updated but remain accessible.</p>
+                <p>This was my first project built with an AI coding assistant (Cursor). It was a useful look at how much an LLM can accelerate the build once the idea is set — and how much of the normal engineering process (tech-stack choices, QA, and iterating on features) still needs a human driving.</p>
                 <hr>
                 <div class="key-features">
                     <h2>Key Features</h2>
                     <ul class="project-bullets">
-                        <li><b>✅ Secure account creation & login</b></li>
-                        <li class="list-item-description">Users can register and authenticate with their email and a securely hashed password. Spring Security handles session protection, authentication flows, and access control across the app.</li>
-                        <li><b>👥 Trip group creation & collaboration</b></li>
-                        <li class="list-item-description">Users can create trip groups, invite members, and manage shared expenses. Each group supports multiple participants with permissions that prevent invalid edits or removals.</li>
-                        <li><b>💰 Flexible expense tracking & splitting</b></li>
-                        <li class="list-item-description">Within each group, users can add, edit, and delete expenses with customizable split options. Detailed participant info and clear breakdowns ensure transparency for every transaction.</li>
+                        <li><b>✅ Secure account creation &amp; login</b></li>
+                        <li class="list-item-description">Email/password auth with hashing, sessions, and access control via Spring Security.</li>
+                        <li><b>👥 Trip group creation &amp; collaboration</b></li>
+                        <li class="list-item-description">Create groups, invite members, and manage shared expenses with permissioned, multi-participant access.</li>
+                        <li><b>💰 Flexible expense tracking &amp; splitting</b></li>
+                        <li class="list-item-description">Add, edit, and delete expenses with customizable split options and clear per-participant breakdowns.</li>
                         <li><b>📊 Balance dashboard with smart calculations</b></li>
-                        <li class="list-item-description">A clean dashboard summarizes who owes whom, showing both per-group amounts and net totals across all activities. The logic automatically aggregates balances to simplify settling up.</li>
+                        <li class="list-item-description">Aggregates who owes whom across groups, showing both per-group amounts and net totals.</li>
                         <li><b>🤝 Settlement tracking</b></li>
-                        <li class="list-item-description">Users can record settlements with validation to prevent duplicate or inconsistent payments. All settlements update group and global balances instantly.</li>
+                        <li class="list-item-description">Record settlements with validation against duplicate payments; balances update instantly.</li>
                         <li><b>🧭 Group lifecycle management</b></li>
-                        <li class="list-item-description">Groups can be joined via ID and left when balances are settled. Empty groups are automatically cleaned up to keep the workspace organized.</li>
-                        <li><b>🌗 Light & dark mode theming</b></li>
-                        <li class="list-item-description">A modern theme system with CSS variables lets users switch between light and dark mode. Preferences are saved for a consistent experience across sessions.</li>
+                        <li class="list-item-description">Join by ID, leave once settled, with automatic cleanup of empty groups.</li>
+                        <li><b>🌗 Light &amp; dark mode theming</b></li>
+                        <li class="list-item-description">CSS-variable theme system with saved preferences across sessions.</li>
                         <li><b>⚡ Performance optimization with caching</b></li>
-                        <li class="list-item-description">Caffeine cache is used to reduce repeated database queries and speed up rendering for group lists, expenses, and balance summaries.</li>
+                        <li class="list-item-description">Caffeine cache cuts repeated queries for group lists, expenses, and balance summaries.</li>
                         <li><b>🧾 Detailed expense history</b></li>
-                        <li class="list-item-description">Users can browse a full paginated history of all group expenses, complete with participant details and timestamps for clear auditability.</li>
+                        <li class="list-item-description">Paginated history of all group expenses with participant details and timestamps.</li>
                     </ul>
                 </div>
                 <hr>

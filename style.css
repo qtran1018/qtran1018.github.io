@@ -321,6 +321,37 @@ figure, figcaption {
     overflow-x: auto;
 }
 
+/* "By the numbers" stat strip */
+.stat-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+.stat {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    background-color: #2e3650;
+    color: #cdd4e4;
+    font-size: 0.85rem;
+}
+.stat b {
+    color: #eaedf3;
+}
+
+/* README call-to-action box */
+.readme-callout {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid #ea4d2d;
+    border-radius: 10px;
+    background-color: #2a2030;
+}
+.readme-callout p {
+    margin: 0 0 0.75rem;
+}
+
 /* Responsive media embeds (e.g. TCG Scanner videos) */
 .video-row {
     display: flex;
