@@ -1,118 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Quang Tran - software engineer and Computer Science grad. I build practical tools end to end, from machine-learning pipelines to shipped, hosted web apps." />
+        <meta property="og:title" content="Quang Tran | Software Engineer Portfolio" />
+        <meta property="og:description" content="Quang Tran - software engineer and Computer Science grad. I build practical tools end to end, from machine-learning pipelines to shipped, hosted web apps." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://qtran1018.github.io/assets/images/icons/apple-touch-icon-me.png" />
+        <meta name="twitter:card" content="summary" />
         <title>Quang Tran | Software Engineer Portfolio</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/assets/images/icons/favicon-me.ico" sizes="any" />
         <link rel="icon" href="/assets/images/icons/favicon-me-32.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/assets/images/icons/favicon-me-16.png" type="image/png" sizes="16x16" />
         <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon-me.png" />
-        <!--<script src="/assets/scripts/iphone-check.js" defer></script> -->
     </head>
     <body>
         <header>
             <nav>
-                <h2><a href="/">Quang Tran</a><a href="/v2/" style="display:inline-block;margin-left:0.75rem;padding:0.2rem 0.6rem;border:1px dashed #ea4d2d;border-radius:999px;color:#ea4d2d;font-size:0.75rem;font-weight:600;text-decoration:none;" title="Preview the redesigned portfolio">View redesign ↗</a></h2>
+                <h2><a href="/">Quang Tran</a></h2>
                 <div class="nav-links">
-                <a href="assets/documents/Quang Tran Resume.pdf" target="_blank"><img src="assets/images/icons/resume.svg" alt="Resume"></a>
-                <a href="https://github.com/qtran1018" target="_blank"><img src="assets/images/icons/github-mark-white.svg" alt="GitHub"></a>
-                <a href="https://www.linkedin.com/in/qtran1018/" target="_blank"><img src="assets/images/icons/linkedin.svg" alt="LinkedIn"></a>
+                <a href="/assets/documents/Quang Tran Resume.pdf" target="_blank"><img src="/assets/images/icons/resume.svg" alt="Resume"></a>
+                <a href="https://github.com/qtran1018" target="_blank"><img src="/assets/images/icons/github-mark-white.svg" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/qtran1018/" target="_blank"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn"></a>
                 </div>
             </nav>
             <hr>
         </header>
         <main>
+            <section id="hero" class="hero">
+                <h1 class="tagline">Software engineer who ships practical tools end to end — from machine-learning pipelines to deployed, self-hosted web apps.</h1>
+                <!-- TODO: set your location/timezone below if you'd like it shown to recruiters. -->
+                <p class="meta-line">B.S. Computer Science, Western Governors University</p>
+                <p><span class="availability">● Open to new-grad software engineer roles</span></p>
+                <div class="cta-row">
+                    <a class="cta-button primary" href="mailto:qtran1018@gmail.com">📧 Email me</a>
+                    <a class="cta-button" href="https://github.com/qtran1018" target="_blank" rel="noopener">GitHub</a>
+                    <a class="cta-button" href="https://www.linkedin.com/in/qtran1018/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a class="cta-button" href="/assets/documents/Quang Tran Resume.pdf" target="_blank">Résumé (PDF)</a>
+                </div>
+            </section>
+            <hr>
             <section id="about-me">
                 <h2>About me</h2>
                 <div class="me-summary">
-                    <img id="pic-of-me" src="/assets/images/other/pfp.png" alt="Picture of me"/>
-                    <div class="me-text">
-                        <h3>Things I like:</h3>
+                    <div class="me-photo">
+                        <img id="pic-of-me" src="/assets/images/other/pfp-upright.png" alt="Quang Tran standing in front of Mt. Fuji"/>
+                        <h3>A few things I like:</h3>
                         <ul>
-                            <li>
-                                Traveling
-                            </li>
-                            <li>
-                                Rock climbing
-                            </li>
-                            <li>
-                                Hiking
-                            </li>
-                            <li>
-                                One Piece
-                            </li>
-                            <li>Making tools that make life easier—without paying for a subscription to some pre-existing service that slowly gets worse over time</li>
-                            <li>
-                                Bubble tea
-                            </li>
-                
+                            <li>Traveling</li>
+                            <li>Rock climbing</li>
+                            <li>Hiking</li>
+                            <li>One Piece</li>
+                            <li>Making tools that make life easier — without paying for a subscription to some service that slowly gets worse over time</li>
+                            <li>Bubble tea</li>
                         </ul>
                     </div>
+                    <div class="me-text">
+                        <p> 👋 Hey, I'm Quang! I recently earned a B.S. in Computer Science from Western Governors University —
+                            actually my second degree, pursued specifically to learn how to build cool things.
+                        </p>
+                        <p>My path into software started at a previous job full of insanely repetitive tasks, so I taught myself
+                            automation. My first internal tool — an Excel VBA macro that turned a multi-minute task into a
+                            two-button click — saved real time every day, and that hooked me on the field for good.
+                        </p>
+                        <p>Since then I've built and shipped full-stack apps, a multi-model computer-vision pipeline, and a
+                            microservices backend. I like owning a problem from idea to deployment. (Basically, I wanted to work
+                            les--<i>I mean</i>, more efficiently. Work smarter, not harder!)
+                        </p>
+                    </div>
                 </div>
-
-                <div id="iphone-message" style="display: none; color:white;">
-                    <p>📱 Hey there, iPhone user! If you see this, my picture may be sideways as a quirk of iPhones and picture orientation data. If you're not on iPhone... oops 😅.</p>
-                </div>
-
-                <p> 👋 Hey, I'm Quang! I recently earned a B.S. in Computer Science from Western Governors University. 
-                    This was actually my second degree—I pursued it to learn how to build cool things.
-                </p>
-                <p>My journey into software engineering began at my previous job. Some of the tasks were insanely repetitive, so I started teaching myself automation. 
-                    That led to my first internal tool: an Excel VBA macro that turned a multi-minute task into a simple two-button click. Seeing something I made save so much time and effort on a daily basis gave me
-                    the motivation to pursue the field in earnest.
-                </p>
-                <p>Basically, I wanted to work les--<i>I mean</i>, more efficiently. Work smarter, not harder!</p>
             </section>
             <hr>
             <section id="projects">
             <h2>Projects</h2>
             <ul id="project-list">
                 <li class="project-item">
-                    <h3><a class="project-link" href="/pages/projects/TCGScanner.html">TCG Scanner - AI-Powered Scanner 🔗</a></h3>
-                    <p>A mobile app that scans trading cards and retrieves live pricing data. Combines a fine-tuned YOLO detection model, fine-tuned CLIP visual embeddings, and on-device OCR to identify cards from a photo — individually or in bulk.</p>
+                    <h3><a class="project-link" href="/pages/projects/TCGScanner.html">TCG Scanner — AI-Powered Card Scanner 🔗</a></h3>
+                    <p>A mobile app that scans trading cards and retrieves live pricing. Combines a fine-tuned YOLO detector, fine-tuned CLIP visual embeddings, and on-device OCR to identify cards from a photo — individually or in bulk — with results streamed back in real time.</p>
+                    <div class="tag-row">
+                        <span class="tag">React Native</span><span class="tag">FastAPI</span><span class="tag">PyTorch</span><span class="tag">CLIP</span><span class="tag">YOLO</span><span class="tag">PostgreSQL · pgvector</span><span class="tag">Redis</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/TCGScanner.html">Read the deep dive →</a>
+                        <a class="card-link" href="https://github.com/qtran1018/TCG" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
                 </li>
                 <li class="project-item">
-                    <h3><a class="project-link" href="/pages/projects/intonational.html">Intonational - Microservices Backend 🔗</a></h3>
-                    <p>A work-in-progress FastAPI backend providing weather forecasts, currency exchange rates, and travel advisories. Modular microservices aggregate data from Open Meteo, ExchangeRate Host, and the US State Department.</p>
+                    <h3><a class="project-link" href="/pages/projects/Splitpush.html">Splitpush — Group Expense Management 🔗</a></h3>
+                    <p>A full-stack web app that makes sharing expenses simple. Create trips, add participants, track shared costs, and settle balances automatically. Self-hosted on an Oracle Cloud VPS behind Cloudflare.</p>
+                    <div class="tag-row">
+                        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Spring Security</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/Splitpush.html">Details →</a>
+                        <a class="live-app" href="https://splitpush.quangntran.com/" target="_blank" rel="noopener">Live app ↗</a>
+                        <a class="card-link" href="https://github.com/qtran1018/Splitpush" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
                 </li>
+                <li class="project-item">
+                    <h3><a class="project-link" href="/pages/projects/TravelBin.html">TravelBin — Collaborative Travel Planner 🔗</a></h3>
+                    <p>A web app for planning trips with friends or family. Create, share, and collaboratively build itineraries with real-time editing and a clean, minimal UI. Self-hosted on Oracle Cloud behind Cloudflare.</p>
+                    <div class="tag-row">
+                        <span class="tag">React</span><span class="tag">Django</span><span class="tag">DRF</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/TravelBin.html">Details →</a>
+                        <a class="live-app" href="https://travelbin.quangntran.com/" target="_blank" rel="noopener">Live app ↗</a>
+                        <a class="card-link" href="https://github.com/qtran1018/travelbin" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
+                </li>
+                <li class="project-item">
+                    <h3><a class="project-link" href="/pages/projects/Itinerary-Agent.html">Itinerary Agent — AI Travel Planner 🔗</a></h3>
+                    <p>An AI-powered itinerary planner with a Vue frontend and Express backend. A short quiz produces a personalized, day-by-day trip plan via an LLM. Self-hosted on Oracle Cloud behind Cloudflare.</p>
+                    <div class="tag-row">
+                        <span class="tag">Vue</span><span class="tag">TypeScript</span><span class="tag">Node</span><span class="tag">Express</span><span class="tag">OpenAI API</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/Itinerary-Agent.html">Details →</a>
+                        <a class="live-app" href="https://agent.quangntran.com/" target="_blank" rel="noopener">Live app ↗</a>
+                        <a class="card-link" href="https://github.com/qtran1018/Itinerary-Agent" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
+                </li>
+                <li class="project-item">
+                    <h3><a class="project-link" href="/pages/projects/intonational.html">Intonational — Microservices Backend 🔗</a><span class="wip-badge">WORK IN PROGRESS</span></h3>
+                    <p>A FastAPI backend providing weather forecasts, currency exchange rates, and travel advisories. Modular microservices aggregate data from Open Meteo, ExchangeRate Host, and the US State Department, with Redis caching and MongoDB storage.</p>
+                    <div class="tag-row">
+                        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Redis</span><span class="tag">MongoDB</span><span class="tag">Playwright</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/intonational.html">Details →</a>
+                        <a class="card-link" href="https://github.com/qtran1018/intonational" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
+                </li>
+            </ul>
 
+            <h3 class="section-subheading">Coursework &amp; earlier projects</h3>
+            <ul id="project-list">
                 <li class="project-item">
-                    <h3><a class="project-link" href="/pages/projects/Splitpush.html">Splitpush - Group Expense Management 🔗</a></h3>
-                    <p>A full-stack web app that makes sharing expenses simple. Create trips, add participants, track shared costs, and settle balances automatically.</p>
-                    <a class="live-app" href="https://splitpush.quangntran.com/" target="_blank" rel="noopener">Live app ↗</a>
+                    <h3><a class="project-link" href="/pages/projects/Weather-Prediction.html">Machine Learning Weather Forecasting 🔗</a></h3>
+                    <p>A desktop Python app that forecasts weather from historical NOAA data with linear regression, including a GUI with graphing and multi-day forecasts. (WGU capstone.)</p>
+                    <div class="tag-row">
+                        <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">pandas</span><span class="tag">Tkinter</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/Weather-Prediction.html">Details →</a>
+                        <a class="card-link" href="https://github.com/qtran1018/Linear-Reg-Weather-Prediction-CAPSTONE" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
                 </li>
                 <li class="project-item">
-                    <h3><a class="project-link" href="/pages/projects/TravelBin.html">TravelBin - Travel Planner 🔗</a></h3>
-                    <p>A web app for planning trips with friends or family. Create, share, and collaboratively build itineraries with real-time editing and a clean, minimal UI.</p>
-                    <a class="live-app" href="https://travelbin.quangntran.com/" target="_blank" rel="noopener">Live app ↗</a>
+                    <h3><a class="project-link" href="/pages/projects/Package-Delivery.html">Package Delivery Router — Traveling Salesperson 🔗</a></h3>
+                    <p>A CLI app simulating package delivery with a nearest-neighbor algorithm and custom hash maps to optimize routes for multiple trucks in Salt Lake City.</p>
+                    <div class="tag-row">
+                        <span class="tag">Python</span><span class="tag">Data structures</span><span class="tag">Algorithms</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/Package-Delivery.html">Details →</a>
+                        <a class="card-link" href="https://github.com/qtran1018/Traveling-Salesman-App-C950" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
                 </li>
                 <li class="project-item">
-                    <h3><a class="project-link" href="/pages/projects/Itinerary-Agent.html">Itinerary-Agent - AI Travel Maker 🔗</a></h3>
-                    <p>An AI-powered travel itinerary planner built with a Vue frontend and Express backend, generating personalized trip plans using LLM's.</p>
-                    <a class="live-app" href="https://agent.quangntran.com/" target="_blank" rel="noopener">Live app ↗</a>
-                </li>
-                <li class="project-item">
-                    <h3 class="links"><a class="project-link" href="/pages/projects/Weather-Prediction.html">Machine Learning Weather Forecasting 🔗</a></h3>
-                    <p>A desktop Python app that predicts weather using historical NOAA data and linear regression. Includes a GUI with graphing and multi-day forecast support.</p>
-                </li>
-                <li class="project-item">
-                    <h3><a class="project-link" href="/pages/projects/Package-Delivery.html">Package Delivery Router - Traveling Salesperson Problem 🔗</a></h3>
-                    <p>A CLI application simulating package delivery using a nearest neighbor algorithm and hash maps to optimize routes for multiple trucks in Salt Lake City.</p>
-                </li>
-                <li class="project-item">
-                    <h3><a class="project-link" href="/pages/projects/Appointment-Scheduler.html">Appointments Management Scheduler 🔗</a></h3>
-                    <p>A timezone-aware desktop app built with JavaFX that lets users manage, validate, and view appointments by week or month—with support for localization and real-time alerts.</p>
+                    <h3><a class="project-link" href="/pages/projects/Appointment-Scheduler.html">Appointment Management Scheduler 🔗</a></h3>
+                    <p>A timezone-aware JavaFX desktop app to manage, validate, and view appointments by week or month, with localization (English/French) and login alerts.</p>
+                    <div class="tag-row">
+                        <span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">MySQL</span><span class="tag">JDBC</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/Appointment-Scheduler.html">Details →</a>
+                        <a class="card-link" href="https://github.com/qtran1018/DB-Appointments-App-C195" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
                 </li>
                 <li class="project-item">
                     <h3><a class="project-link" href="/pages/projects/Inventory-Management.html">Inventory Management System 🔗</a></h3>
-                    <p>A JavaFX-based desktop app for managing parts and products, where products are composed of parts. Includes full CRUD support and clean UI design.</p>
+                    <p>A JavaFX desktop app for managing parts and products (products composed of parts), with full CRUD, search, and input validation.</p>
+                    <div class="tag-row">
+                        <span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">OOP</span>
+                    </div>
+                    <div class="card-links">
+                        <a class="card-link" href="/pages/projects/Inventory-Management.html">Details →</a>
+                        <a class="card-link" href="https://github.com/qtran1018/Inventory-Management-Tool-C482" target="_blank" rel="noopener">Code ↗</a>
+                    </div>
                 </li>
             </ul>
             </section>
         </main>
         <hr>
         <footer>
-            <p>© 2025 Quang Tran | All rights probably reserved 😄</p>
+            <p>© 2026 Quang Tran</p>
             <a id="email-link" href="mailto:qtran1018@gmail.com">📧 Send me an email</a>
         </footer>
     </body>

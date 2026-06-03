@@ -83,7 +83,7 @@ figure, figcaption {
 }
 
 .project-images img {
-    max-width: 48rem;
+    max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -107,14 +107,33 @@ figure, figcaption {
     padding-left: 2rem;
     padding-bottom: 1rem;
 }
+.me-photo {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    width: 240px;
+}
+
+.me-photo h3 {
+    margin: 0.75rem 0 0.25rem;
+}
+
+.me-photo ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin-top: 0;
+}
+
 #pic-of-me {
-    height: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .me-summary {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.25rem;
     color: white;
 }
 
@@ -150,4 +169,227 @@ figure, figcaption {
 #email-link {
     color: #ea4d2d;
     padding-bottom: 10px;
+}
+
+/* ---------- v2 additions ---------- */
+
+/* Header toggle link (switch between current site and redesign) */
+.toggle-link {
+    display: inline-block;
+    margin-left: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border: 1px dashed #ea4d2d;
+    border-radius: 999px;
+    color: #ea4d2d;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.toggle-link:hover {
+    background-color: #ea4d2d;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    padding: 1.5rem 0 0.5rem;
+}
+.hero h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+    line-height: 1.15;
+}
+.hero .tagline {
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+}
+.hero .meta-line {
+    color: #aeb6c8;
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+}
+.availability {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    background-color: #1f3d2e;
+    border: 1px solid #2f7d54;
+    color: #6ee7a0;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Call-to-action button row (email / GitHub / LinkedIn / resume) */
+.cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0 0.5rem;
+}
+.cta-button {
+    display: inline-block;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid #ea4d2d;
+    border-radius: 8px;
+    color: #ea4d2d;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.cta-button.primary {
+    background-color: #ea4d2d;
+    color: #fff;
+}
+.cta-button:hover {
+    background-color: #ea4d2d;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Project cards + tech tags */
+.project-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #2e3650;
+}
+.project-item h3 {
+    margin-bottom: 0.35rem;
+}
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.5rem 0;
+}
+.tag {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background-color: #2e3650;
+    color: #cdd4e4;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.card-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+.card-link {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #ea4d2d;
+    border-radius: 999px;
+    color: #ea4d2d;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+.card-link:hover {
+    background-color: #ea4d2d;
+    color: #fff;
+    text-decoration: none;
+}
+/* Live app pill sits in the same row; drop its standalone top margin here */
+.card-links .live-app {
+    margin-top: 0;
+}
+.wip-badge {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    background-color: #3a2f12;
+    border: 1px solid #8a6d1f;
+    color: #f0c75e;
+    font-size: 0.7rem;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.section-subheading {
+    margin-top: 2rem;
+    color: #aeb6c8;
+    font-size: 1.05rem;
+    border-top: 1px solid #2e3650;
+    padding-top: 1rem;
+}
+
+/* Make wide tables scroll instead of overflowing on small screens */
+.table-scroll {
+    overflow-x: auto;
+}
+
+/* Responsive media embeds (e.g. TCG Scanner videos) */
+.video-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.video-embed {
+    position: relative;
+    width: 315px;
+    max-width: 100%;
+    aspect-ratio: 315 / 560;
+}
+.video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+}
+
+/* ---------- mobile breakpoint ---------- */
+@media (max-width: 640px) {
+    body {
+        padding-left: 0.85rem;
+        padding-right: 0.85rem;
+    }
+    nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+    }
+    nav img {
+        height: 34px;
+    }
+    .me-summary {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+    }
+    .me-photo {
+        width: 100%;
+        align-items: center;
+    }
+    #pic-of-me {
+        width: 60%;
+        max-width: 220px;
+    }
+    .me-photo h3,
+    .me-photo ul {
+        align-self: flex-start;
+    }
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    .hero .tagline {
+        font-size: 1rem;
+    }
+    .cta-button {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+    .training-data th,
+    .training-data td {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.85rem;
+    }
 }
