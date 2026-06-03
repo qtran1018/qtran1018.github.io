@@ -39,26 +39,26 @@
                         <div class="video-embed">
                             <iframe src="https://www.youtube.com/embed/mVWX6n-BG2c" title="TCG Scanner multi-scan demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <p style="margin: 0; font-size: 0.9em; color: #aaa; text-align: center;">Multi-scan — photograph up to 20 cards at once</p>
+                        <p style="margin: 0; font-size: 0.9em; color: #aaa; text-align: center;">Multi-scan - photograph up to 20 cards at once</p>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
                         <div class="video-embed">
                             <iframe src="https://www.youtube.com/embed/uBOjM4HuF94" title="TCG Scanner live scan demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <p style="margin: 0; font-size: 0.9em; color: #aaa; text-align: center;">Live scan — continuous 1-by-1 identification in real time</p>
+                        <p style="margin: 0; font-size: 0.9em; color: #aaa; text-align: center;">Live scan - continuous 1-by-1 identification in real time</p>
                     </div>
                 </div>
-                <p style="text-align: center; font-size: 0.85em; color: #888; margin-bottom: 24px;"><em>Note: price fetch times for newly scanned cards reflect live web scraping latency. This would be eliminated with a dedicated pricing API — an intentional upgrade path if the project scales.</em></p>
+                <p style="text-align: center; font-size: 0.85em; color: #888; margin-bottom: 24px;"><em>Note: price fetch times for newly scanned cards reflect live web scraping latency. This would be eliminated with a dedicated pricing API - an intentional upgrade path if the project scales.</em></p>
                 <div class="tldr-box">
-                    <p><b>TL;DR —</b> Two main use cases:</p>
+                    <p><b>TL;DR - </b> Two main use cases:</p>
                     <ul>
-                        <li><b>Display case / binder scan:</b> photograph an entire spread of cards at once. The app detects each card, identifies it, and streams prices back one-by-one as they resolve — no waiting for the full batch.</li>
+                        <li><b>Display case / binder scan:</b> photograph an entire spread of cards at once. The app detects each card, identifies it, and streams prices back one-by-one as they resolve - no waiting for the full batch.</li>
                         <li><b>Bulk 1-by-1 scan:</b> hold cards up to the camera in sequence. Each card is identified automatically and added to a running session list in real time, with a total value updating as you go.</li>
                     </ul>
-                    <p>Both modes use fine-tuned on-device and server-side ML models: a custom-trained YOLO11n for card detection, and a fine-tuned CLIP visual embedding model for image-based identification — neither is a third-party recognition API.</p>
+                    <p>Both modes use fine-tuned on-device and server-side ML models: a custom-trained YOLO11n for card detection, and a fine-tuned CLIP visual embedding model for image-based identification - neither is a third-party recognition API.</p>
                 </div>
 
-                <p>The app fuses three signals to identify a card: YOLO detects each card's boundaries, ML Kit reads its text on-device, and a fine-tuned CLIP model matches it visually. Prices, recent sales, and trend graphs are scraped live from PriceCharting and cached in Redis. It grew across 31 iterations — from a single-card OCR scanner to a multi-model streaming pipeline — with each version answering a concrete failure in the one before it.</p>
+                <p>The app fuses three signals to identify a card: YOLO detects each card's boundaries, ML Kit reads its text on-device, and a fine-tuned CLIP model matches it visually. Prices, recent sales, and trend graphs are scraped live from PriceCharting and cached in Redis. It grew across 31 iterations - from a single-card OCR scanner to a multi-model streaming pipeline - with each version answering a concrete failure in the one before it.</p>
 
                 <div class="stat-strip">
                     <span class="stat"><b>31</b> iterations</span>
@@ -77,7 +77,7 @@
                         <li><b>📷 Multi-card batch scanning</b></li>
                         <li class="list-item-description">Photograph a whole spread of cards; each one is detected, identified, and streamed back to the UI one-by-one as it resolves (first card in ~3s on a Samsung S22+).</li>
                         <li><b>🎥 Live continuous scanning</b></li>
-                        <li class="list-item-description">Hold cards up to the camera and they're identified automatically into a running session list — no shutter tap, with a two-frame confirmation gate to reject phantom matches mid-swap.</li>
+                        <li class="list-item-description">Hold cards up to the camera and they're identified automatically into a running session list - no shutter tap, with a two-frame confirmation gate to reject phantom matches mid-swap.</li>
                         <li><b>🤖 Three-mode recognition engine</b></li>
                         <li class="list-item-description">OCR text search, CLIP image matching across 47,442 card vectors, or both fused via Reciprocal Rank Fusion for the most accurate identification.</li>
                         <li><b>🇯🇵 Automatic Japanese support</b></li>
@@ -92,26 +92,26 @@
                 <hr>
 
                 <h2>Engineering story</h2>
-                <p>The interesting part of this project was the iteration. Each major rewrite started from a specific failure — here are the five biggest, as problem → action → outcome.</p>
+                <p>The interesting part of this project was the iteration. Each major rewrite started from a specific failure - here are the five biggest, as problem → action → outcome.</p>
                 <div class="key-features">
                     <ul class="project-bullets">
                         <li><b>🎯 Finding cards in a messy photo</b></li>
                         <li class="list-item-description">
-                            <b>Problem:</b> my first detector inferred card positions by clustering OCR text — it failed completely on holofoil, face-down, or overlapping cards with no readable text.<br>
+                            <b>Problem:</b> my first detector inferred card positions by clustering OCR text - it failed completely on holofoil, face-down, or overlapping cards with no readable text.<br>
                             <b>Action:</b> trained a YOLO11n detector on 1,688 real images, then built a synthetic-data pipeline that pastes card art onto random desk and display-case backgrounds with auto-generated bounding boxes (zero manual labeling).<br>
-                            <b>Outcome:</b> detection became robust to surface finish and overlap, and bounding-box accuracy (mAP50-95) rose from 0.904 to 0.964 — giving the matcher cleaner crops.
+                            <b>Outcome:</b> detection became robust to surface finish and overlap, and bounding-box accuracy (mAP50-95) rose from 0.904 to 0.964 - giving the matcher cleaner crops.
                         </li>
                         <li><b>🧠 Too little real data to train the visual matcher</b></li>
                         <li class="list-item-description">
                             <b>Problem:</b> an off-the-shelf image model gave near-random matches (it had never seen a phone photo of a card next to its clean scan), and I didn't have enough real labeled photos to fine-tune it.<br>
-                            <b>Action:</b> generated synthetic training pairs instead — each clean card image augmented with perspective warp, color jitter, blur, JPEG artifacts, and random backgrounds to mimic real scanning conditions — and fine-tuned CLIP's visual encoder on them.<br>
+                            <b>Action:</b> generated synthetic training pairs instead - each clean card image augmented with perspective warp, color jitter, blur, JPEG artifacts, and random backgrounds to mimic real scanning conditions - and fine-tuned CLIP's visual encoder on them.<br>
                             <b>Outcome:</b> recognition held up across different lighting and angles, lifting match scores from a near-random 0.45–0.58 to 0.78–0.86 on distinctive cards.
                         </li>
                         <li><b>🇯🇵 A broken shortcut for Japanese cards</b></li>
                         <li class="list-item-description">
-                            <b>Problem:</b> I first derived Japanese card images by mapping JP numbers onto English sets — but EN and JP numbering are unrelated, so every JP match returned the wrong artwork.<br>
+                            <b>Problem:</b> I first derived Japanese card images by mapping JP numbers onto English sets - but EN and JP numbering are unrelated, so every JP match returned the wrong artwork.<br>
                             <b>Action:</b> re-architected the data model, scraping 27,255 JP cards as independent records with their own images, numbers, and sets, and made every search filter by language.<br>
-                            <b>Outcome:</b> fully independent EN and JP pipelines — mixed-language scans now resolve each card to the correct artwork automatically.
+                            <b>Outcome:</b> fully independent EN and JP pipelines - mixed-language scans now resolve each card to the correct artwork automatically.
                         </li>
                         <li><b>⚡ Three slow round-trips per scan</b></li>
                         <li class="list-item-description">
@@ -121,7 +121,7 @@
                         </li>
                         <li><b>🎥 Live scan too slow to feel real-time</b></li>
                         <li class="list-item-description">
-                            <b>Problem:</b> the original live mode used a two-step loop with a stability hold — 2–3 seconds per card, hitting the backend twice each cycle.<br>
+                            <b>Problem:</b> the original live mode used a two-step loop with a stability hold - 2–3 seconds per card, hitting the backend twice each cycle.<br>
                             <b>Action:</b> rewrote it as a single round-trip (one snapshot → one backend call handling both detection and recognition), removing the on-device step entirely.<br>
                             <b>Outcome:</b> cycle time dropped to ~700–900 ms, making continuous hold-and-scan feel instant.
                         </li>
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="readme-callout">
-                    <p>📖 <b>Want the full depth?</b> The complete engineering write-up — step-by-step scan internals, model training logs and metrics, known limitations, and third-party attributions — lives in the GitHub README.</p>
+                    <p>📖 <b>Want the full depth?</b> The complete engineering write-up - step-by-step scan internals, model training logs and metrics, known limitations, and third-party attributions - lives in the GitHub README.</p>
                     <a class="cta-button primary" href="https://github.com/qtran1018/TCG#readme" target="_blank" rel="noopener">Read the full write-up on GitHub ↗</a>
                 </div>
 
@@ -143,7 +143,7 @@
                         <li><b>Data &amp; caching:</b> PostgreSQL + pgvector (47,442 embeddings, IVFFlat index), pg_trgm fuzzy search, Redis</li>
                         <li><b>Infra &amp; sources:</b> Docker Compose, pokemontcg.io, TCGCollector, PriceCharting, Frankfurter API</li>
                     </ul>
-                    <p style="font-size: 0.85em; color: #9aa3b8;">Built on open models — a fine-tuned YOLO11n (AGPL-3.0) and CLIP ViT-B/32 (MIT) — with community training data. Full attributions and licenses are in the README.</p>
+                    <p style="font-size: 0.85em; color: #9aa3b8;">Built on open models - a fine-tuned YOLO11n (AGPL-3.0) and CLIP ViT-B/32 (MIT) - with community training data. Full attributions and licenses are in the README.</p>
                 </div>
 
                 <hr>
