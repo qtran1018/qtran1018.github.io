@@ -321,6 +321,21 @@ figure, figcaption {
     overflow-x: auto;
 }
 
+/* Infrastructure note (e.g. shared SSO) */
+.infra-note {
+    margin: 0 0 1rem;
+    padding: 0.6rem 0.9rem;
+    border-left: 3px solid #ea4d2d;
+    background-color: #2a2030;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.92rem;
+    color: #cdd4e4;
+}
+.infra-note a {
+    color: #ea4d2d;
+    font-weight: 600;
+}
+
 /* "By the numbers" stat strip */
 .stat-strip {
     display: flex;
