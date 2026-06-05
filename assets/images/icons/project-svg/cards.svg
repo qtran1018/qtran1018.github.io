@@ -1,0 +1,14 @@
+<svg width="800px" height="800px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet">
+  <!-- back card, tilted behind -->
+  <g transform="rotate(-16 60 66)">
+    <rect x="24" y="28" width="54" height="76" rx="9" fill="#42A5F5" stroke="#1565C0" stroke-width="4"/>
+    <circle cx="51" cy="66" r="14" fill="#ffffff" opacity="0.85"/>
+    <circle cx="51" cy="66" r="6" fill="#1E88E5"/>
+  </g>
+  <!-- front card -->
+  <rect x="52" y="24" width="54" height="78" rx="9" fill="#ffffff" stroke="#607D8B" stroke-width="4"/>
+  <!-- heart -->
+  <path d="M79 90c-12-7-18-13-18-21c0-5 4-9 9-9c4 0 6 2 9 6c3-4 5-6 9-6c5 0 9 4 9 9c0 8-6 14-18 21z" fill="#EF5350"/>
+  <!-- corner pip -->
+  <path d="M60 36c-3-2-5-4-5-6.5c0-1.6 1.3-2.8 2.8-2.8c1.2 0 1.9 0.6 2.2 1.6c0.3-1 1-1.6 2.2-1.6c1.5 0 2.8 1.2 2.8 2.8c0 2.5-2 4.5-5 6.5z" fill="#EF5350"/>
+</svg>
