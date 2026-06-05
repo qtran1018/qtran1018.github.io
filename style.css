@@ -114,14 +114,27 @@ figure, figcaption {
     width: 240px;
 }
 
-.me-photo h3 {
-    margin: 0.75rem 0 0.25rem;
+.me-likes {
+    margin-top: 1.25rem;
 }
 
-.me-photo ul {
+.me-likes h3 {
+    margin: 0 0 0.5rem;
+}
+
+.likes-list {
+    column-count: 2;
+    column-gap: 1.25rem;
+    /* col 1 ≈ photo width (240px) so col 2 lines up under the paragraph above */
+    max-width: 31.25rem;
     list-style-type: disc;
     padding-left: 1.25rem;
-    margin-top: 0;
+    margin: 0;
+}
+
+.likes-list li {
+    margin-bottom: 0.3rem;
+    break-inside: avoid;
 }
 
 #pic-of-me {
@@ -419,9 +432,8 @@ figure, figcaption {
         width: 60%;
         max-width: 220px;
     }
-    .me-photo h3,
-    .me-photo ul {
-        align-self: flex-start;
+    .likes-list {
+        column-count: 1;
     }
     .hero h1 {
         font-size: 1.6rem;
