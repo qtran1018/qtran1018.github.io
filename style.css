@@ -1,16 +1,42 @@
+/* ---------- theme tokens ---------- */
+:root {
+    color-scheme: dark;
+    --bg: #212737;
+    --text: #eaedf3;
+    --muted: #aeb6c8;
+    --panel: #2e3650;       /* tag / stat / table-header background */
+    --panel-soft: #2a2030;  /* callout / infra-note background */
+    --border: #2e3650;
+    --chip-text: #cdd4e4;
+    --accent: #ea4d2d;      /* brand accent - constant across themes */
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #f6f7f9;
+    --text: #1c2230;
+    --muted: #51607a;
+    --panel: #e9ecf2;
+    --panel-soft: #fdeee9;
+    --border: #d7dce6;
+    --chip-text: #41495c;
+}
+
 html, body {
     height: 100%;
     margin: 0;
 }
 
 body {
-    background-color: #212737;
+    background-color: var(--bg);
+    color: var(--text);
     font-family: system-ui, sans-serif;
     max-width: 48rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 nav {
@@ -52,6 +78,29 @@ nav img {
     height: 40px;
 }
 
+/* Light/dark theme toggle (sits to the right of the social icons) */
+.theme-toggle {
+    margin-left: 0.6rem;   /* a bit further from the icons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: inherit;
+}
+.theme-toggle:hover {
+    opacity: 0.75;
+}
+
+/* Inline aqua links are too light on a light background - darken them there */
+:root[data-theme="light"] a[style*="aqua"] {
+    color: #0a7d8c !important;
+}
+
 a {
     text-decoration: none;
 }
@@ -63,12 +112,17 @@ a:hover {
 }
 
 h1, h2, h3, p, a , li{
-    color: #eaedf3;
+    color: var(--text);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
 }
 
 figure, figcaption {
     margin-left: 0;
-    color: #eaedf3;
+    color: var(--text);
 }
 
 #project-list {
@@ -147,7 +201,7 @@ figure, figcaption {
     display: flex;
     align-items: flex-start;
     gap: 1.25rem;
-    color: white;
+    color: var(--text);
 }
 
 .me-text {
@@ -169,14 +223,14 @@ figure, figcaption {
 
 .training-data th,
 .training-data td {
-    border: 1px solid #eaedf3;
+    border: 1px solid var(--border);
     padding: 0.4rem 0.75rem;
     text-align: left;
-    color: #ffffff;
+    color: var(--text);
 }
 
 .training-data th {
-    background-color: #2e3650;
+    background-color: var(--panel);
 }
 
 #email-link {
@@ -218,7 +272,7 @@ figure, figcaption {
     margin: 0 0 0.75rem;
 }
 .hero .meta-line {
-    color: #aeb6c8;
+    color: var(--muted);
     margin: 0 0 1rem;
     font-size: 0.95rem;
 }
@@ -262,7 +316,7 @@ figure, figcaption {
 /* Project cards + tech tags */
 .project-item {
     padding: 1rem 0;
-    border-bottom: 1px solid #2e3650;
+    border-bottom: 1px solid var(--border);
 }
 .project-item h3 {
     margin-bottom: 0.35rem;
@@ -277,8 +331,8 @@ figure, figcaption {
     display: inline-block;
     padding: 0.15rem 0.55rem;
     border-radius: 999px;
-    background-color: #2e3650;
-    color: #cdd4e4;
+    background-color: var(--panel);
+    color: var(--chip-text);
     font-size: 0.75rem;
     font-weight: 600;
 }
@@ -323,9 +377,9 @@ figure, figcaption {
 }
 .section-subheading {
     margin-top: 2rem;
-    color: #aeb6c8;
+    color: var(--muted);
     font-size: 1.05rem;
-    border-top: 1px solid #2e3650;
+    border-top: 1px solid var(--border);
     padding-top: 1rem;
 }
 
@@ -339,10 +393,10 @@ figure, figcaption {
     margin: 0 0 1rem;
     padding: 0.6rem 0.9rem;
     border-left: 3px solid #ea4d2d;
-    background-color: #2a2030;
+    background-color: var(--panel-soft);
     border-radius: 0 6px 6px 0;
     font-size: 0.92rem;
-    color: #cdd4e4;
+    color: var(--chip-text);
 }
 .infra-note a {
     color: #ea4d2d;
@@ -360,12 +414,12 @@ figure, figcaption {
     display: inline-block;
     padding: 0.35rem 0.75rem;
     border-radius: 8px;
-    background-color: #2e3650;
-    color: #cdd4e4;
+    background-color: var(--panel);
+    color: var(--chip-text);
     font-size: 0.85rem;
 }
 .stat b {
-    color: #eaedf3;
+    color: var(--text);
 }
 
 /* README call-to-action box */
@@ -374,7 +428,7 @@ figure, figcaption {
     padding: 1rem 1.25rem;
     border: 1px solid #ea4d2d;
     border-radius: 10px;
-    background-color: #2a2030;
+    background-color: var(--panel-soft);
 }
 .readme-callout p {
     margin: 0 0 0.75rem;
