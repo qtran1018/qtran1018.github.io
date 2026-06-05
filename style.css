@@ -101,6 +101,11 @@ nav img {
     color: #0a7d8c !important;
 }
 
+/* GitHub mark swaps with the theme: white asset on dark, dark asset on light */
+img.gh-light { display: none; }
+:root[data-theme="light"] img.gh-dark { display: none; }
+:root[data-theme="light"] img.gh-light { display: inline-block; }
+
 a {
     text-decoration: none;
 }
